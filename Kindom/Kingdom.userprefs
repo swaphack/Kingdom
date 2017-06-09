@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Common\UI\UIScrollView.cs">
+    <Files>
+      <File FileName="Assets\Script\Layer\MainLayer.cs" Line="19" Column="1" />
+      <File FileName="Assets\Script\Common\UI\UIScrollView.cs" Line="75" Column="6" NotebookId="1" />
+      <File FileName="Assets\Script\Common\UI\UIControl.cs" Line="123" Column="12" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="E:\Projects\Kingdom\Assets\Script\Common\Input\Device\Mouse\MMiddleScroll.cs" line="5" column="1" />
+      <Breakpoint file="E:\Projects\Kingdom\Assets\Script\Map\Layer\Building.cs" line="158" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
