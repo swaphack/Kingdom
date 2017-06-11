@@ -89,17 +89,18 @@ public class UIControl : MonoBehaviour
 	/// </summary>
 	/// <param name="componet">Componet.</param>
 	/// <typeparam name="T">The 1st type parameter.</typeparam>
-	public static T AddComponent<T>(Component componet) where T : Component
+	public static T AppendComponent<T>(Component componet) where T : Component
 	{
 		if (componet == null) {
 			return null;
 		}
 
-		if (componet.gameObject.GetComponent<T> () != null) {
-			return componet.gameObject.GetComponent<T> ();
-		} else {
-			return componet.gameObject.AddComponent<T> ();
-		}
+		T t = componet.gameObject.GetComponent<T> ();
+		if (t == null) {
+			t = componet.gameObject.AddComponent<T> ();
+		} 
+
+		return t;
 	}
 
 	/// <summary>
@@ -116,11 +117,27 @@ public class UIControl : MonoBehaviour
 		if (t == null) {
 			return;
 		} else {
-			Destroy (t);
+			DestroyImmediate (t);
 		}
 	}
 
 	#endregion
+
+	/// <summary>
+	/// 是否是脏数据
+	/// </summary>
+	private bool _bDirty;
+
+	private RectTransform _RectTransform;
+
+	protected bool Dirty {
+		get { 
+			return _bDirty;
+		}
+		set {
+			_bDirty = value;
+		}
+	}
 
 
 	/// <summary>
@@ -157,10 +174,35 @@ public class UIControl : MonoBehaviour
 	}
 
 	public void Init() {
+		this.InitRectTransform();
 		this.InitControl ();
 	}
 
+	void Update() {
+		if (Dirty) {
+			this.Flush ();
+			Dirty = false;
+		}
+	}
+
+	private void InitRectTransform() {
+		_RectTransform = GetComponent<RectTransform> ();
+		if (_RectTransform == null) {
+			return;
+		}
+	}
+
+	/// <summary>
+	/// 初始化控件
+	/// </summary>
 	protected virtual void InitControl() {
+		
+	}
+
+	/// <summary>
+	/// 刷新数据
+	/// </summary>
+	protected virtual void Flush() {
 		
 	}
 }
