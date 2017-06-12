@@ -1,6 +1,8 @@
 *.meta
 /Kindom/Library/metadata/
 /Kindom/Library/ShaderCache/
+/Kindom/Library/ScriptAssemblies/
+/Kindom/Temp/
 /Kindom/Assets/KriptoFX/
 /Kindom/Library/*.log
 /Kindom/obj/
