@@ -16,9 +16,9 @@ public class Star : MonoBehaviour
 	/// </summary>
 	public float Speed;
 	/// <summary>
-	/// 宇宙力
+	/// 运动速度
 	/// </summary>
-	public Vector3 UniverseForce;
+	public float MoveSpeed;
 
 	void Awake() {
 		Rigidbody rigidbody = this.GetComponent<Rigidbody> ();
@@ -49,7 +49,8 @@ public class Star : MonoBehaviour
 		}
 
 		Vector3 force = galaxy.GetStarForce (this);
-		force += UniverseForce;
+		force += Vector3.Normalize(this.transform.forward) * MoveSpeed;
+		//force *= Time.deltaTime;
 		this.GetComponent<Rigidbody> ().AddForce (force);
 	}
 }

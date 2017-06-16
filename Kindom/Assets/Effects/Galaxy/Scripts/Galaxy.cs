@@ -17,7 +17,7 @@ public class Galaxy : MonoBehaviour
 		Vector3 direction = src.transform.position - dest.transform.position;
 		float distance2 = Vector3.SqrMagnitude (direction);
 		float g = GRAVIATION * src.mass * dest.mass / distance2;
-		return g * direction;
+		return g * direction.normalized;
 	}
 
 	public static Vector3 GetForce(Rigidbody[] srcs, Rigidbody dest) {
