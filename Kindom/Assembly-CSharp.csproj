@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{662FBB2B-7792-05F0-F70F-68FDD059AC61}</ProjectGuid>
+    <ProjectGuid>{75281B4E-5873-B179-BE90-FAA453BD275A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,6 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Effects\Galaxy\Scripts\Galaxy.cs" />
+     <Compile Include="Assets\Effects\Galaxy\Scripts\Light.cs" />
+     <Compile Include="Assets\Effects\Galaxy\Scripts\Star.cs" />
+     <Compile Include="Assets\Effects\Galaxy\Scripts\Trail.cs" />
+     <Compile Include="Assets\Effects\Weather\Scripts\Rain.cs" />
+     <Compile Include="Assets\Effects\Weather\Scripts\Snow.cs" />
+     <Compile Include="Assets\Effects\Weather\Scripts\Weather.cs" />
      <Compile Include="Assets\HighlightingSystem\Scripts\HighlightableObject.cs" />
      <Compile Include="Assets\HighlightingSystem\Scripts\HighlightingEffect.cs" />
      <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_DemoGUI.cs" />
@@ -90,12 +97,21 @@
      <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TransformMotion.cs" />
      <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_UVAnimation.cs" />
      <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_UVScroll.cs" />
+     <Compile Include="Assets\Script\Battle\BNode.cs" />
+     <Compile Include="Assets\Script\Battle\Formation.cs" />
+     <Compile Include="Assets\Script\Battle\Team.cs" />
+     <Compile Include="Assets\Script\Battle\Unit.cs" />
      <Compile Include="Assets\Script\Common\Component\CameraBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Component\HighlightBehaviour.cs" />
+     <Compile Include="Assets\Script\Common\Component\ITouchModel.cs" />
+     <Compile Include="Assets\Script\Common\Component\ModelBehaviour.cs" />
+     <Compile Include="Assets\Script\Common\Component\ObstacleBehaviour.cs" />
+     <Compile Include="Assets\Script\Common\Component\PathFinderBehaviour.cs" />
      <Compile Include="Assets\Script\Common\Device\DeviceRoot.cs" />
      <Compile Include="Assets\Script\Common\Device\KeyboardListener.cs" />
      <Compile Include="Assets\Script\Common\Device\ScrollListener.cs" />
      <Compile Include="Assets\Script\Common\Device\TouchListener.cs" />
+     <Compile Include="Assets\Script\Common\Groups\Group.cs" />
+     <Compile Include="Assets\Script\Common\Groups\GroupItem.cs" />
      <Compile Include="Assets\Script\Common\Input\Component\IDeviceComponent.cs" />
      <Compile Include="Assets\Script\Common\Input\Component\OnKeyboardDelegate.cs" />
      <Compile Include="Assets\Script\Common\Input\Component\OnScrollDelegate.cs" />
@@ -117,30 +133,37 @@
      <Compile Include="Assets\Script\Common\Manager\InputManager.cs" />
      <Compile Include="Assets\Script\Common\Manager\ResourceManger.cs" />
      <Compile Include="Assets\Script\Common\Root.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIBase.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIButton.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIControl.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIDropDown.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIImage.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIInputField.cs" />
-     <Compile Include="Assets\Script\Common\UI\UILayer.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIPanel.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIRawImage.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIScrollView.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIScrollbar.cs" />
-     <Compile Include="Assets\Script\Common\UI\UISlider.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIText.cs" />
-     <Compile Include="Assets\Script\Common\UI\UIToggle.cs" />
+     <Compile Include="Assets\Script\Common\UI\Base\UIBase.cs" />
+     <Compile Include="Assets\Script\Common\UI\Base\UIControl.cs" />
+     <Compile Include="Assets\Script\Common\UI\Base\UILayer.cs" />
+     <Compile Include="Assets\Script\Common\UI\Base\UIRect.cs" />
+     <Compile Include="Assets\Script\Common\UI\Base\UISelectable.cs" />
+     <Compile Include="Assets\Script\Common\UI\Box\UIAbsoluteBox.cs" />
+     <Compile Include="Assets\Script\Common\UI\Box\UIBox.cs" />
+     <Compile Include="Assets\Script\Common\UI\Box\UIRelativeBox.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIButton.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIDropDown.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIImage.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIInputField.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIPanel.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIRawImage.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIScrollList.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIScrollbar.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UISlider.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIText.cs" />
+     <Compile Include="Assets\Script\Common\UI\Control\UIToggle.cs" />
      <Compile Include="Assets\Script\Common\Utility\Instance.cs" />
      <Compile Include="Assets\Script\Common\Utility\Size.cs" />
      <Compile Include="Assets\Script\Layer\MainLayer.cs" />
-     <Compile Include="Assets\Script\Map\Creater\Builder.cs" />
-     <Compile Include="Assets\Script\Map\Creater\LayerCreater.cs" />
+     <Compile Include="Assets\Script\Map\Base\MapConstants.cs" />
      <Compile Include="Assets\Script\Map\Ground.cs" />
      <Compile Include="Assets\Script\Map\Ground\GroundLayer.cs" />
      <Compile Include="Assets\Script\Map\Ground\GroundTile.cs" />
+     <Compile Include="Assets\Script\Map\GroundBuilder.cs" />
      <Compile Include="Assets\Script\Map\Layer\Building.cs" />
      <Compile Include="Assets\Script\Map\Layer\BuildingLayer.cs" />
+     <Compile Include="Assets\Script\Map\Layer\Role.cs" />
+     <Compile Include="Assets\Script\Map\Layer\RoleLayer.cs" />
      <Compile Include="Assets\Script\Map\Layer\Turf.cs" />
      <Compile Include="Assets\Script\Map\Layer\TurfLayer.cs" />
      <Compile Include="Assets\Script\Motion\MovingObject.cs" />

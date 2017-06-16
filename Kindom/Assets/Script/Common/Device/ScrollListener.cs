@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class ScrollListener : Singleton<ScrollListener>, ITouchEvent
 {
-	public delegate void OnScrollHandler(Vector3 direction);
+	public delegate void OnScrollHandler(TouchPhase touchPhase, Vector3 direction);
 
 	private Dictionary<GameObject, OnScrollHandler> _Dispatchers;
 
@@ -49,21 +49,23 @@ public class ScrollListener : Singleton<ScrollListener>, ITouchEvent
 	{
 		if (touchPhase == TouchPhase.Began) {
 			_LastTouchPoint = touchPoint;
+			OnScrollEvent (touchPhase, Vector3.zero);
 		} else if (touchPhase == TouchPhase.Moved) {
 			Vector3 currentTouchPoint = touchPoint;
-			OnScrollEvent (currentTouchPoint - _LastTouchPoint);
+			OnScrollEvent (touchPhase, currentTouchPoint - _LastTouchPoint);
 			_LastTouchPoint = currentTouchPoint;
 		} else if (touchPhase == TouchPhase.Ended) {
+			OnScrollEvent (touchPhase, Vector3.zero);
 			_LastTouchGO = null;
 		}
 	}
 
-	private void OnScrollEvent(Vector3 direction) {
+	private void OnScrollEvent(TouchPhase touchPhase, Vector3 direction) {
 		if (_LastTouchGO == null) {
 			return;
 		}
 		if (_Dispatchers.ContainsKey (_LastTouchGO)) {
-			_Dispatchers [_LastTouchGO] (direction);
+			_Dispatchers [_LastTouchGO] (touchPhase, direction);
 		}
 	}
 

@@ -7,60 +7,72 @@ using UnityEngine;
 /// </summary>
 public class Building : GroundTile 
 {
-	internal class BuildingModel : GroundTile
+	internal class BuildingModel : ModelBehaviour
 	{
 		void Start() {
 			OuterGlowColor = Color.white;
-			TouchEnable = true;
-			ScrollListener.Instance.AddDispatch (this.gameObject, this.OnRotation);
+			EnableTouch = true;
+			AddScrollListener ();
 		}
 
 		void OnDestory() {
+			RemoveScrollListener ();
+		}
+
+		public void AddScrollListener() {
+			ScrollListener.Instance.AddDispatch (this.gameObject, this.OnRotation);
+		}
+
+		public void RemoveScrollListener() {
 			ScrollListener.Instance.RemoveDispatch (this.gameObject);
+			if (Camera.main == null) {
+				return;
+			}
+			CameraBehaviour cb = Camera.main.GetComponent<CameraBehaviour> ();
+			if (cb != null) {
+				cb.EnableRotate = true;
+			}
 		}
 
 		/// <summary>
 		/// 旋转
 		/// </summary>
 		/// <param name="direction">Direction.</param>
-		private void OnRotation(Vector3 direction) {
+		private void OnRotation(TouchPhase touchPhase, Vector3 direction) {
 			if (!IsTouched) {
 				return;
 			}
 			this.transform.Rotate (new Vector3(0, -direction.x, 0));
+
+			CameraBehaviour cb = Camera.main.GetComponent<CameraBehaviour> ();
+			if (cb == null) {
+				return;
+			}
+			if (touchPhase == TouchPhase.Moved) {
+				cb.EnableRotate = false;
+			} else {
+				cb.EnableRotate = true;
+			}
 		}
 
 		/// <summary>
 		/// 点击事件
 		/// </summary>
-		protected override void OnTouchEvent(Vector3 hitInfo) {
+		public override bool OnTouchModel(Vector3 hitInfo) {
 			if (IsTouched == false) {
 				PlayHighlight ();
 			} else {
 				CancelHighlight ();
 			}
 
-			CameraBehaviour cb = Camera.main.GetComponent<CameraBehaviour> ();
-			if (cb != null) {
-				cb.EnableRotate = IsTouched;
-			}
-
 			IsTouched = !IsTouched;
+
+			return true;
 		}
 	}
 
 	internal class BuildingUI
 	{
-		/*
-		void Update() {
-			Vector3 srcPos = this.transform.position;
-			Vector3 destPos = Camera.main.transform.position;
-			destPos.y = srcPos.y;
-
-			Quaternion q = Quaternion.FromToRotation (srcPos, destPos);
-			this.transform.rotation = q;
-		}
-		*/
 	}
 	
 	/// <summary>
@@ -74,8 +86,6 @@ public class Building : GroundTile
 		
 	// Use this for initialization
 	void Start () {
-		TouchEnable = true;
-
 		CreateModel ();
 		CreateUI ();
 
@@ -84,6 +94,7 @@ public class Building : GroundTile
 
 	void OnDestroy() {
 		KeyboardListener.Instance.RemoveDispatch (this.gameObject, KeyCode.Delete);
+		this.GetComponentInChildren<BuildingModel> ().RemoveScrollListener ();
 	}
 
 	private void CreateModel() {
@@ -93,15 +104,14 @@ public class Building : GroundTile
 		}
 
 		child.AddComponent<BuildingModel> ();
-
-		Vector3 pos = Vector3.one;
-		pos.x = TileSize.Width * 0.5f;
-		pos.y = 0;
-		pos.z = TileSize.Height * 0.5f;
-
-		child.transform.position = pos;
+		child.transform.position = this.transform.position;
+		child.transform.localScale = MapConstants.GetBuildingScale(TileSize, TileCount);
 		child.name = "Model";
 		child.transform.SetParent (this.transform);
+
+		ObstacleBehaviour ob = child.AddComponent<ObstacleBehaviour> ();
+		ob.Center = new Vector3 (0, TileSize.Height * 0.25f, 0);
+		ob.Size = new Vector3 (TileSize.Width * 0.5f, TileSize.Height * 0.5f, TileSize.Height * 0.5f);
 	}
 
 	private void CreateUI() {
@@ -122,18 +132,16 @@ public class Building : GroundTile
 		Collider collider = go.GetComponent<Collider> ();
 		collider.enabled = false;
 
-		Vector3 pos = Vector3.one;
-		pos.x = TileSize.Width * 0.5f;
-		pos.y = 12;
-		pos.z = TileSize.Height * 0.5f;
+		Vector3 pos = this.transform.position;
+		pos.y += 12;
 
-		Vector3 scale = go.transform.localScale;
-		scale.z = -scale.z;
+		//Vector3 scale = go.transform.localScale;
+		//scale.z = -scale.z;
 
 		Quaternion q = Quaternion.Euler(270, 0, 0);
 
 		go.name = "UI";
-		go.transform.localScale = scale;
+		//go.transform.localScale = scale;
 		go.transform.position = pos;
 		go.transform.rotation = q;
 		go.transform.SetParent (this.transform);
@@ -144,7 +152,7 @@ public class Building : GroundTile
 	/// <summary>
 	/// 点击事件
 	/// </summary>
-	protected override void OnTouchEvent(Vector3 hitInfo) {
+	public override bool OnTouchModel(Vector3 touchPosition) {
 		if (IsTouched == false) {
 			ShowUI ();
 		} else {
@@ -152,6 +160,8 @@ public class Building : GroundTile
 		}
 
 		IsTouched = !IsTouched;
+
+		return true;
 	}
 	
 	void OnRemoveSelf(TouchPhase touchPhase) {

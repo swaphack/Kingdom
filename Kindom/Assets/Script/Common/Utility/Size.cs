@@ -35,5 +35,17 @@ public struct Size
 	public static bool operator!= (Size s1, Size s2) {
 		return s1.Width != s2.Width || s1.Height != s2.Height;
 	}
+
+	public static Size one {
+		get { 
+			return new Size (1, 1);
+		}
+	}
+
+	public static Size zero {
+		get { 
+			return new Size ();
+		}
+	}
 }
 

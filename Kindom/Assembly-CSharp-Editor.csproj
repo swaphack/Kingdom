@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7ED8C90A-4E9D-F306-317B-BB0CA98A8B3D}</ProjectGuid>
+    <ProjectGuid>{AFD9762F-D19F-E080-D775-C1428C54156A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\HighlightingSystemEditor.cs" />
+     <Compile Include="Assets\Editor\Inspector\NewBehaviourScript.cs" />
      <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Editor\RFX4_CustomMaterialInspectorParticle.cs" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_CutoutBorderMobile.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalSky.shader" />
@@ -154,9 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{662FBB2B-7792-05F0-F70F-68FDD059AC61}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{75281B4E-5873-B179-BE90-FAA453BD275A}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript.unityproj">
-      <Project>{547A7C96-3760-AE64-CE93-8CE71ED3CB7D}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
+      <Project>{1664C454-A552-18D6-E049-354CDD0A651C}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

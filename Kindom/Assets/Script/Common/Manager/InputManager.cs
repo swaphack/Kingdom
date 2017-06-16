@@ -29,6 +29,11 @@ public class InputManager : Singleton<InputManager>
 		}
 	}
 
+	/// <summary>
+	/// 添加设备
+	/// </summary>
+	/// <returns>The device.</returns>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
 	public T AddDevice<T>() where T : Device, new()
 	{
 		T t = new T ();
@@ -36,6 +41,11 @@ public class InputManager : Singleton<InputManager>
 		return t;
 	}
 
+	/// <summary>
+	/// 获取设备
+	/// </summary>
+	/// <returns>The device.</returns>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
 	public T GetDevice<T>() where T : Device
 	{
 		for (int i = 0; i < _Devices.Count; i++) {

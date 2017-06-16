@@ -33,15 +33,10 @@ public class TurfLayer : GroundLayer
 		float width = TileCount.Width;
 		float height = TileCount.Height;
 
-		Vector3 pos = Vector3.one;
-		pos.y = OriginPoint.y + GROUND_TILE_OFFSET;
-
 		int index = 0;
-
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				pos.x = i * TileSize.Width + OriginPoint.x + TileSize.Width * 0.5f;
-				pos.z = j * TileSize.Height + OriginPoint.z + TileSize.Width * 0.5f;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				Vector3 pos = GetCenterPosition(new Size(i, j));
 				index = (i * (int)width + j) % TurfTextures.Length;
 				AddTurf (index, pos);
 			}
@@ -55,12 +50,35 @@ public class TurfLayer : GroundLayer
 	/// <param name="pos">Position.</param>
 	private void AddTurf(int index, Vector3 pos)
 	{
-		GameObject go = AddTile<Turf> (pos, false);
+		GameObject go = AddTile<Turf> (pos, true);
 		if (go == null) {
 			return;
 		}
 
-		go.GetComponent<Turf> ().ReplaceMatTexture (TurfTextures [index]);
+		go.GetComponent<Turf> ().ReplaceTexture (TurfTextures [index]);
+	}
+
+	/// <summary>
+	/// 替换的纹理资源
+	/// </summary>
+	public string ReplaceTextureUrl;
+	/// <summary>
+	/// 点击到点
+	/// </summary>
+	/// <param name="touchPos">Touch position.</param>
+	public override bool OnTouchModel (Vector3 touchPosition) {
+		Vector3 centerPos = this.ConvertToCenterPosition (touchPosition);
+		Turf turf = this.GetTile<Turf> (centerPos);
+		if (turf == null || !turf.EnableTouch) {
+			return false;
+		}
+		
+		if (!string.IsNullOrEmpty (ReplaceTextureUrl)) {
+			turf.ReplaceTexture (ResourceManger.Instance.Get<Texture2D> (ReplaceTextureUrl));
+			return true;
+		} else {
+			return turf.OnTouchModel (touchPosition - turf.OriginPoint);
+		}
 	}
 }
 

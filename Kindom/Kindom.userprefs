@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Common\Component\PathFinderBehaviour.cs">
+    <Files>
+      <File FileName="Assets\Script\Common\Component\PathFinderBehaviour.cs" Line="138" Column="15" />
+      <File FileName="Assets\Script\Battle\Formation.cs" Line="9" Column="1" NotebookId="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Script\Common\UI\RectTransform\UIRelativeBox.cs" line="13" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -8,11 +8,11 @@ using UnityEngine;
 public class Ground : MonoBehaviour {
 	
 	/// <summary>
-	/// 块大小
+	/// 地皮块大小
 	/// </summary>
-	public Size TileSize = new Size(10, 10);
+	public Size TileSize = new Size(100, 100);
 	/// <summary>
-	/// 地皮总数
+	/// 地皮块总数
 	/// </summary>
 	public Size TileCount = new Size (10, 10);
 
@@ -23,9 +23,10 @@ public class Ground : MonoBehaviour {
 
 	void Start()
 	{
-		this.transform.localScale = new Vector3 (TileCount.Width, 1, TileCount.Height);
+		this.transform.localScale = MapConstants.GetScale (TileSize, TileCount);
 		this.AddLayer<TurfLayer> (GROUND_OFFSET);
 		this.AddLayer<BuildingLayer> (2 * GROUND_OFFSET);
+		this.AddLayer<RoleLayer> (2 * GROUND_OFFSET);
 	}
 
 	/// <summary>
@@ -42,11 +43,36 @@ public class Ground : MonoBehaviour {
 		GameObject go = new GameObject ();
 		go.name = name;
 		go.transform.localPosition = pos;
+		go.transform.localScale = Vector3.one;
 		go.transform.SetParent (this.transform);
 
 		T layer = go.AddComponent<T> ();
 		layer.TileSize = TileSize;
 		layer.TileCount = TileCount;
+	}
+
+	/// <summary>
+	/// 获取层
+	/// </summary>
+	/// <returns>The layer.</returns>
+	/// <param name="index">Index.</param>
+	public GroundLayer GetLayer(int index)
+	{
+		if (index < 0 || index >= this.transform.childCount) {
+			return null;
+		}
+
+		return this.transform.GetChild (index).GetComponent<GroundLayer> ();
+	}
+
+	/// <summary>
+	/// 层数
+	/// </summary>
+	/// <value>The layer count.</value>
+	public int LayerCount {
+		get {
+			return this.transform.childCount;	
+		}
 	}
 
 	/// <summary>
@@ -62,5 +88,58 @@ public class Ground : MonoBehaviour {
 		}
 
 		return layer;
+	}
+
+	/// <summary>
+	/// 添加点击监听
+	/// </summary>
+	public void AddClickListener() {
+		TouchListener.Instance.AddDispatch (this.gameObject, this.OnTouchGround);
+	}
+
+	/// <summary>
+	/// 移除点击监听
+	/// </summary>
+	public void RemoveClickListener() {
+		TouchListener.Instance.RemoveDispatch (this.gameObject);
+	}
+
+
+	/// <summary>
+	/// 点击
+	/// </summary>
+	/// <param name="hitPos">Hit position.</param>
+	private void OnTouchGround(Vector3 hitPos) {
+		GroundLayer[] layers = this.GetComponentsInChildren<GroundLayer> ();
+		if (layers == null || layers.Length == 0) {
+			return;
+		}
+
+		for (int i = layers.Length - 1; i >= 0 ; i--) {
+			ITouchModel layer = layers [i];
+			if (layer != null && layer.EnableTouch) {
+				layer.OnTouchModel (hitPos);
+				return;
+			}
+		}
+	}
+
+	/// <summary>
+	/// 设置当前可点击的层，其他层不可点击
+	/// </summary>
+	/// <param name="index">Index.</param>
+	public void SetEnableTouchLayer(int index) {
+		GroundLayer layer = null;
+		for (int i = 0; i < LayerCount; i++) {
+			layer = GetLayer (i);
+			if (layer != null) {
+				if (index == i) {
+					layer.EnableTouch = true;
+				} else {
+					layer.EnableTouch = false;
+				}
+
+			}
+		}
 	}
 }

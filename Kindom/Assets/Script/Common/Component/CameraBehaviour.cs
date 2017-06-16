@@ -71,8 +71,7 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 	/// </summary>
 	/// <param name="scrollDelta">Scroll delta.</param>
 	public void OnScroll (Vector2 scrollDelta) {
-		// 中间滑轮
-		OnScrollView (scrollDelta.y);
+		OnMoveView (scrollDelta.y);
 	}
 
 	// Use this for initialization
@@ -103,6 +102,11 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 		if (value > 179)
 			value = 179;
 		camera.fieldOfView = value;
+	}
+
+	void OnMoveView (float scrollRate) {
+		Vector3 offset = this.transform.forward * scrollRate;
+		this.transform.localPosition += offset ;
 	}
 }
 

@@ -19,8 +19,13 @@ public class BuildingLayer : GroundLayer
 
 
 	private void InitGroundPiece() {
-		Vector3 pos = this.GetCenterPosition (new Size(5, 5));
-		this.AddBuilding (pos, BuildingPrefabUrl);
+		this.AddBuilding (this.GetCenterPosition (new Size(1, 1)), BuildingPrefabUrl);
+		this.AddBuilding (this.GetCenterPosition (new Size(2, 3)), BuildingPrefabUrl);
+		this.AddBuilding (this.GetCenterPosition (new Size(4, 5)), BuildingPrefabUrl);
+		//this.AddBuilding (this.GetCenterPosition (new Size(5, 5)), BuildingPrefabUrl);
+		this.AddBuilding (this.GetCenterPosition (new Size(6, 2)), BuildingPrefabUrl);
+		this.AddBuilding (this.GetCenterPosition (new Size(7, 5)), BuildingPrefabUrl);
+		this.AddBuilding (this.GetCenterPosition (new Size(1, 5)), BuildingPrefabUrl);
 	}
 	
 	/// <summary>
@@ -30,7 +35,7 @@ public class BuildingLayer : GroundLayer
 	/// <param name="url">URL.</param>
 	public void AddBuilding(Vector3 centerPos, string url)
 	{
-		GameObject go = AddTile<Building> (centerPos, false);
+		GameObject go = AddTile<Building> (centerPos, true);
 		if (go == null) {
 			return;
 		}

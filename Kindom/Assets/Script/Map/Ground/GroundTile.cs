@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// 地图元素
 /// </summary>
-public class GroundTile : HighlightBehaviour
+public class GroundTile : ModelBehaviour
 {
 	/// <summary>
 	/// 原点坐标
@@ -19,13 +19,17 @@ public class GroundTile : HighlightBehaviour
 	/// </summary>
 	private Size _TileCount;
 	/// <summary>
-	/// 是否可点击
+	/// 是否能点击
 	/// </summary>
-	private bool _TouchEnabled;
-	/// <summary>
-	/// 是否点击过
-	/// </summary>
-	private bool _IsTouched;
+	/// <value><c>true</c> if touch enable; otherwise, <c>false</c>.</value>
+	public override bool EnableTouch {
+		get { 
+			return _EnableTouch;
+		} 
+		set { 
+			_EnableTouch = value;
+		}
+	}
 
 	/// <summary>
 	/// 块大小
@@ -75,49 +79,6 @@ public class GroundTile : HighlightBehaviour
 	}
 
 	/// <summary>
-	/// 是否可触摸
-	/// </summary>
-	/// <value><c>true</c> if touch enable; otherwise, <c>false</c>.</value>
-	public bool TouchEnable {
-		get { 
-			return _TouchEnabled;
-		}
-		set { 
-			if (value == false) {
-				TouchListener.Instance.RemoveDispatch (this.gameObject);
-			} else {
-				TouchListener.Instance.AddDispatch (this.gameObject, this.OnTouchEvent);
-			}
-			_TouchEnabled = value;
-
-			Collider collider = GetComponent<Collider> ();
-			if (collider != null) {
-				collider.enabled = value;
-			}
-		}
-	}
-
-	/// <summary>
-	/// 是否点击过
-	/// </summary>
-	/// <value><c>true</c> if this instance is touched; otherwise, <c>false</c>.</value>
-	public bool IsTouched {
-		get { 
-			return _IsTouched;
-		} 
-		set { 
-			_IsTouched = value;
-		}
-	}
-
-	/// <summary>
-	/// 点击事件
-	/// </summary>
-	protected virtual void OnTouchEvent(Vector3 hitInfo) {
-		
-	}
-
-	/// <summary>
 	/// 是否包含某点
 	/// </summary>
 	/// <returns><c>true</c>, if point was contained, <c>false</c> otherwise.</returns>
@@ -142,21 +103,6 @@ public class GroundTile : HighlightBehaviour
 		_OriginPoint = pos;
 	}
 
-	/// <summary>
-	/// 替换材质纹理
-	/// </summary>
-	/// <param name="texture">Texture.</param>
-	public void ReplaceMatTexture(Texture2D texture) {
-		if (texture == null) {
-			return;
-		}
-
-		Renderer meshRender = GetComponent<Renderer> ();
-		if (meshRender != null) {
-			meshRender.material.mainTexture = texture;
-		}
-	}
-
 	public GroundTile() {
 		_TileSize = new Size(1,1);
 		_TileCount = new Size(1,1);
@@ -164,7 +110,11 @@ public class GroundTile : HighlightBehaviour
 
 	private void OnDestroy ()
 	{
-		TouchEnable = false;
+		EnableTouch = false;
+	}
+
+	public override bool OnTouchModel (Vector3 touchPosition) {
+		return false;
 	}
 }
 

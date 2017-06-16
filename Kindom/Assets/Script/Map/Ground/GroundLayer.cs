@@ -16,6 +16,10 @@ public class GroundLayer : GroundTile
 	/// </summary>
 	public const float GROUND_TILE_OFFSET = 0.001f;
 
+	public GroundLayer()
+	{
+	}
+
 	/// <summary>
 	/// 获取地图块
 	/// </summary>
@@ -68,6 +72,33 @@ public class GroundLayer : GroundTile
 	/// <param name="go">Go.</param>
 	/// <param name="pos">Position.</param>
 	/// <param name="touchEnable">If set to <c>true</c> touch enable.</param>
+	public GameObject AddGameObject<T>(GameObject go, Vector3 pos, bool touchEnable) where T : GroundTile {
+		if (go == null || string.IsNullOrEmpty (TilePrefabPath)) {
+			return null;
+		}
+		Vector3 scale = MapConstants.GetScale (TileSize, Size.one);
+		go.name = typeof(T).ToString();
+		go.transform.localScale = scale;
+		go.transform.SetParent (this.transform);
+
+		T tile = go.AddComponent<T> ();
+		tile.TileSize = TileSize;
+		tile.Position = pos;
+		tile.EnableTouch = touchEnable;
+
+		Collider collider = go.GetComponent<Collider> ();
+		if (collider != null) {
+			collider.enabled = false;
+		}
+
+		return go;
+	}
+
+	/// <summary>
+	/// 创建地图块
+	/// </summary>
+	/// <param name="pos">Position.</param>
+	/// <param name="touchEnable">If set to <c>true</c> touch enable.</param>
 	public GameObject AddTile<T>(Vector3 pos, bool touchEnable) where T : GroundTile {
 		if (string.IsNullOrEmpty (TilePrefabPath)) {
 			return null;
@@ -78,15 +109,7 @@ public class GroundLayer : GroundTile
 			return null;
 		}
 
-		go.name = typeof(T).ToString();
-		go.transform.SetParent (this.transform);
-
-		T tile = go.AddComponent<T> ();
-		tile.TileSize = TileSize;
-		tile.Position = pos;
-		tile.TouchEnable = touchEnable;
-
-		return go;
+		return AddGameObject<T>(go, pos, touchEnable);
 	}
 
 	/// <summary>
@@ -123,6 +146,20 @@ public class GroundLayer : GroundTile
 
 	void Start() {
 		InitOriginPoint ();
+	}
+
+	/// <summary>
+	/// 点击到点
+	/// </summary>
+	/// <param name="touchPos">Touch position.</param>
+	public override bool OnTouchModel (Vector3 touchPosition) {
+		Vector3 centerPos = this.ConvertToCenterPosition (touchPosition);
+		GroundTile tile = this.GetTile<GroundTile> (centerPos);
+		if (tile == null || !tile.EnableTouch) {
+			return false;
+		}
+
+		return tile.OnTouchModel (touchPosition - tile.OriginPoint);
 	}
 }
 
