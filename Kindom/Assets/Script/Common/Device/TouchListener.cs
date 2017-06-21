@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TouchListener : Singleton<TouchListener>, ITouchEvent
+public class TouchListener : SingletonBehaviour<TouchListener>, ITouchEvent
 {
 	/// <summary>
 	/// 点击回调
@@ -17,6 +17,16 @@ public class TouchListener : Singleton<TouchListener>, ITouchEvent
 	private TouchListener()
 	{
 		_Dispatchers = new Dictionary<GameObject, OnTouchHandler> ();
+	}
+
+	/// <summary>
+	/// 是否必须需要对象
+	/// </summary>
+	/// <value><c>true</c> if need touch target; otherwise, <c>false</c>.</value>
+	public bool NeedTarget { 
+		get {
+			return true;
+		} 
 	}
 
 	/// <summary>

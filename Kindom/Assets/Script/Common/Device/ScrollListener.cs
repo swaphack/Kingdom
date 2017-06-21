@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
 
-public class ScrollListener : Singleton<ScrollListener>, ITouchEvent
+public class ScrollListener : SingletonBehaviour<ScrollListener>, ITouchEvent
 {
 	public delegate void OnScrollHandler(TouchPhase touchPhase, Vector3 direction);
 
@@ -18,6 +18,16 @@ public class ScrollListener : Singleton<ScrollListener>, ITouchEvent
 	public ScrollListener()
 	{
 		_Dispatchers = new Dictionary<GameObject, OnScrollHandler> ();
+	}
+
+	/// <summary>
+	/// 是否必须需要对象
+	/// </summary>
+	/// <value><c>true</c> if need touch target; otherwise, <c>false</c>.</value>
+	public bool NeedTarget { 
+		get {
+			return true;
+		} 
 	}
 
 	/// <summary>

@@ -9,6 +9,11 @@ using UnityEngine;
 public interface ITouchEvent
 {
 	/// <summary>
+	/// 是否必须需要对象
+	/// </summary>
+	/// <value><c>true</c> if need touch target; otherwise, <c>false</c>.</value>
+	bool NeedTarget { get; }
+	/// <summary>
 	/// 是否点击到目标
 	/// </summary>
 	/// <returns><c>true</c> if this instance is touch the specified go; otherwise, <c>false</c>.</returns>
@@ -51,14 +56,9 @@ public class TouchEvent
 	{
 		if (touchPhase == TouchPhase.Began) {
 			Ray ray = Camera.main.ScreenPointToRay (touchPoint);
-			if (!Physics.Raycast (ray, out _LastRaycastHit)) {
-				return;
-			}
+			Physics.Raycast (ray, out _LastRaycastHit);
 			Dispatch (touchPhase, touchPoint, _LastRaycastHit);
 		} else if (touchPhase == TouchPhase.Moved) {
-			if (_LastRaycastHit.collider == null) {
-				return;
-			}
 			Dispatch (touchPhase, touchPoint, _LastRaycastHit);
 		} else if (touchPhase == TouchPhase.Ended) {
 			Dispatch (touchPhase, touchPoint, _LastRaycastHit);
@@ -100,12 +100,11 @@ public class TouchEvent
 	/// <param name="touchPoint">Touch point.</param>
 	/// <param name="hitInfo">Hit info.</param>
 	private void Dispatch(TouchPhase touchPhase, Vector3 touchPoint, RaycastHit hitInfo) {
-		if (_LastRaycastHit.collider == null) {
-			return;
-		}
-
 		for (int i = 0; i < _TouchDelegates.Count; i++) {
-			if (_TouchDelegates [i].IsTouch (_LastRaycastHit.collider.gameObject)) {
+			if (_TouchDelegates [i].NeedTarget == false) { // 不需要对象的
+				_TouchDelegates [i].OnClick (touchPhase, touchPoint, hitInfo);
+			} else if (_LastRaycastHit.collider != null
+				&& _TouchDelegates [i].IsTouch (_LastRaycastHit.collider.gameObject)) {
 				_TouchDelegates [i].OnClick (touchPhase, touchPoint, hitInfo);
 			}
 		}

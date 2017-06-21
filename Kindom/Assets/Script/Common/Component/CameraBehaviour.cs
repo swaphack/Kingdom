@@ -2,12 +2,47 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 
+/// <summary>
+/// 摄像机行为
+/// </summary>
 public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 {
+	/// <summary>
+	/// 旋转类型
+	/// </summary>
+	public enum RotationType
+	{
+		Self,
+		World,
+	}
+	
 	private Vector3 _InitTouchPoint = Vector3.zero;
 	private Vector3 _lastTouchPoint = Vector3.zero;
 	private bool _EnableScroll = true;
 	private bool _EnableRotate = true;
+
+	/// <summary>
+	/// 水平旋转是否固定
+	/// </summary>
+	public bool FixedHorizontalRotation;
+	/// <summary>
+	/// 垂直旋转是否固定
+	/// </summary>
+	public bool FixedVerticalRotation;
+	/// <summary>
+	/// 旋转类型
+	/// </summary>
+	public RotationType RotateType;
+
+	/// <summary>
+	/// 是否必须需要对象
+	/// </summary>
+	/// <value><c>true</c> if need touch target; otherwise, <c>false</c>.</value>
+	public bool NeedTarget { 
+		get {
+			return false;
+		} 
+	}
 
 	/// <summary>
 	/// 是否点击到目标
@@ -81,14 +116,33 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 		InputManager.Instance.GetDevice<Mouse> ().MiddleScrollEvent.AddScrollHandler (this);
 	}
 
+	void OnDestory() {
+		InputManager.Instance.GetDevice<Mouse> ().RightTouchEvent.RemoveTouchHandler (this);
+		InputManager.Instance.GetDevice<Mouse> ().MiddleScrollEvent.RemoveScrollHandler (this);
+	}
+
 	/// <summary>
 	/// 滑动视角
 	/// </summary>
 	void OnRotateView(Vector3 direction) {
 		Camera camera = this.GetComponent<Camera> ();
-		camera.transform.RotateAround (_InitTouchPoint, Vector3.up, direction.x);
+		Vector3 up = Vector3.up;
+		Vector3 right = Vector3.right;
+
+		if (RotateType == RotationType.Self) {
+			up = this.transform.up;
+			right = this.transform.right;
+		}
+
+		if (!FixedHorizontalRotation) {
+			camera.transform.RotateAround (_InitTouchPoint, up, direction.x);
+		}
+		if (!FixedVerticalRotation) {
+			camera.transform.RotateAround (_InitTouchPoint, right, -direction.y);
+		}
 	}
 
+	/*
 	/// <summary>
 	/// 滚动视角
 	/// </summary>
@@ -102,7 +156,7 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 		if (value > 179)
 			value = 179;
 		camera.fieldOfView = value;
-	}
+	}*/
 
 	void OnMoveView (float scrollRate) {
 		Vector3 offset = this.transform.forward * scrollRate;

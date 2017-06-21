@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class KeyboardListener : Singleton<KeyboardListener>, IKeyboardEvent
+public class KeyboardListener : SingletonBehaviour<KeyboardListener>, IKeyboardEvent
 {
 	public delegate void OnKeyDownHandler(TouchPhase touchPhase);
 

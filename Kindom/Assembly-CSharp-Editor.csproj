@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\HighlightingSystemEditor.cs" />
-     <Compile Include="Assets\Editor\Inspector\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Editor\Inspector\DataInspectorEditor.cs" />
+     <Compile Include="Assets\Editor\Inspector\FormationEditor.cs" />
+     <Compile Include="Assets\Editor\Inspector\InspectorEditor.cs" />
+     <Compile Include="Assets\Editor\Inspector\MapEditor.cs" />
+     <Compile Include="Assets\Editor\Window\TextureImportSetting.cs" />
      <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Editor\RFX4_CustomMaterialInspectorParticle.cs" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_CutoutBorderMobile.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalSky.shader" />

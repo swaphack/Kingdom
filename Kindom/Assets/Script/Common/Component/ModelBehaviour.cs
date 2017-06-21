@@ -228,7 +228,10 @@ public class ModelBehaviour : MonoBehaviour, ITouchModel
 		}
 	}
 
-	void Awake() {
+	/// <summary>
+	/// 初始化
+	/// </summary>
+	public virtual void Init() {
 		_HighlightableObject = GetComponent<HighlightableObject> ();
 		_Renderer = GetComponent<Renderer> ();
 	}

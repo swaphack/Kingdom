@@ -42,6 +42,9 @@ public class ScrollEvent
 	/// <param name="scrollDelta">Scroll delta.</param>
 	public void OnScroll (Vector2 scrollDelta)
 	{
+		if (scrollDelta == Vector2.zero) {
+			return;
+		}
 		for (int i = 0; i < _ScrollDelegates.Count; i++) {
 			if (_ScrollDelegates [i].EnableScroll) {
 				_ScrollDelegates [i].OnScroll (scrollDelta);

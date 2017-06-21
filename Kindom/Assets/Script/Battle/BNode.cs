@@ -9,7 +9,7 @@ public class BNode : MonoBehaviour
 	/// <summary>
 	/// 遍历
 	/// </summary>
-	public delegate void OnForeachHandler(Component child);
+	public delegate void OnForeachHandler(int index, Component child);
 
 	/// <summary>
 	/// 添加到父节点
@@ -76,7 +76,7 @@ public class BNode : MonoBehaviour
 	/// 遍历每个子节点
 	/// </summary>
 	/// <param name="handler">Handler.</param>
-	public void Foreach(OnForeachHandler handler)
+	public void ForeachChildren(OnForeachHandler handler)
 	{
 		if (handler == null) {
 			return;
@@ -84,7 +84,7 @@ public class BNode : MonoBehaviour
 
 		int childCount = this.transform.childCount;
 		for (int i = 0; i < childCount; i++) {
-			handler (this.transform.GetChild (i));
+			handler (i, this.transform.GetChild (i));
 		}
 	}
 }

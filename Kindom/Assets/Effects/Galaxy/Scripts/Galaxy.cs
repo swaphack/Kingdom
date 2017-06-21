@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 星系
+/// </summary>
 public class Galaxy : MonoBehaviour
 {
 	/// <summary>
-	/// 万有引力常数 6.67 * 10^-7
+	/// 万有引力常数 6.02 * 10^-11
 	/// 0.000000667f
 	/// </summary>
-	public const float GRAVIATION = 0.667f;
+	public float GRAVIATION = 10f;
 
-
-	public static Vector3 GetForce(Rigidbody src, Rigidbody dest) {
+	/// <summary>
+	/// 获取作用力，src对dest的作用力
+	/// </summary>
+	/// <returns>The force.</returns>
+	/// <param name="src">Source.</param>
+	/// <param name="dest">Destination.</param>
+	private Vector3 GetForce(Rigidbody src, Rigidbody dest) {
 		if (src == null || dest == null) {
 			return Vector3.zero;
 		}
@@ -20,7 +28,13 @@ public class Galaxy : MonoBehaviour
 		return g * direction.normalized;
 	}
 
-	public static Vector3 GetForce(Rigidbody[] srcs, Rigidbody dest) {
+	/// <summary>
+	/// 获取作用力，srcs对dest的作用力
+	/// </summary>
+	/// <returns>The force.</returns>
+	/// <param name="srcs">Srcs.</param>
+	/// <param name="dest">Destination.</param>
+	private Vector3 GetForce(Rigidbody[] srcs, Rigidbody dest) {
 		if (srcs == null || srcs.Length == 0 || dest == null) {
 			return Vector3.zero;
 		}

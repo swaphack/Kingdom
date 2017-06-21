@@ -17,12 +17,26 @@ public class PathFinderBehaviour : MonoBehaviour
 	/// 目的地
 	/// </summary>
 	public Vector3 Destination;
+	/// <summary>
+	/// 是否正在运行
+	/// </summary>
+	private bool _Running;
 
-	void Awake() {
+	public bool Running {
+		get {
+			return _Running;
+		}
+	}
+
+	void Awake()
+	{
 		_Agent = this.GetComponent<NavMeshAgent> ();
 	}
 
 	void Update() {
+		if (_Running == false) {
+			return;
+		}
 		if (Target == null) {
 			_Agent.SetDestination (Destination);
 			return;
@@ -190,24 +204,14 @@ public class PathFinderBehaviour : MonoBehaviour
 	/// 停止寻路代理
 	/// </summary>
 	public void Stop() {
-		if (_Agent.enabled == false) {
-			return;
-		}
-
-		if (!_Agent.hasPath) {
-			return;	
-		}
-
-		_Agent.ResetPath ();
-		_Agent.isStopped = true;
-		_Agent.enabled = false;
+		_Running = false;
 	}
 
 	/// <summary>
 	/// 恢复寻路代理
 	/// </summary>
 	public void Resume() {
-		_Agent.enabled = true;
+		_Running = true;
 	}
 }
 

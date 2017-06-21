@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class InputManager : Singleton<InputManager>
+public class InputManager : SingletonBehaviour<InputManager>
 {
 	private List<Device> _Devices;
 
@@ -18,7 +18,7 @@ public class InputManager : Singleton<InputManager>
 	void Update ()
 	{
 		// 点击到UI界面
-		if (EventSystem.current.IsPointerOverGameObject ()) {
+		if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject ()) {
 			return;
 		}
 

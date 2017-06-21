@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene/Day.unity
+- path: Assets/Scene/Jump.unity
   isLoaded: 1
   isActive: 1

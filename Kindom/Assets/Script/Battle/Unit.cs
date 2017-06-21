@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
 {
 	private PathFinderBehaviour _PathFinder;
 
-	void Awake() {
+	public virtual void Init() {
 		_PathFinder = this.GetComponent<PathFinderBehaviour> ();
 	}
 

@@ -38,7 +38,7 @@ public class Weather : MonoBehaviour
 	/// <summary>
 	/// 初始化天气
 	/// </summary>
-	protected void InitWeather() {
+	public virtual void InitWeather() {
 		this.transform.rotation = Quaternion.Euler (new Vector3 (90, 0, 0));
 			
 		_ParticleSystem = this.GetComponent<ParticleSystem>	();
