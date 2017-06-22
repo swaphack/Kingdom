@@ -24,15 +24,18 @@ public class CubeBuilder
 	/// </summary>
 	public static Cube CreateCube()
 	{
-		GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		//GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		GameObject go = new GameObject();
+		Cube newCube = go.AddComponent<Cube> ();
+		newCube.Init ();
+
 		Renderer render = go.GetComponent<Renderer> ();
 		if (render != null) {
 			render.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 			render.receiveShadows = false;
 		}
 
-		Cube newCube = go.AddComponent<Cube> ();
-		newCube.Init ();
+
 
 		return newCube;
 	}

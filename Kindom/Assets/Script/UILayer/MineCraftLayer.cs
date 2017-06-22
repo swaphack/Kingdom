@@ -30,10 +30,24 @@ public class MineCraftLayer : UILayer
 	/// 方块纹理
 	/// </summary>
 	public string[] CubeTextures = new string[] {
-		"Textures/blocks/dirt_podzol_top",
-		"Textures/blocks/leaves_acacia",
-		"Textures/blocks/stone_andesite",
+		"Textures/blocks/carpet/carpet_colored_black",
+		"Textures/blocks/carpet/carpet_colored_blue",
+		"Textures/blocks/carpet/carpet_colored_brown",
+		"Textures/blocks/carpet/carpet_colored_cyan",
+		"Textures/blocks/carpet/carpet_colored_gray",
+		"Textures/blocks/carpet/carpet_colored_green",
+		"Textures/blocks/tallgrass/1",
+		"Textures/blocks/tallgrass/2",
+		"Textures/blocks/tallgrass/3",
+		"Textures/blocks/tallgrass/4",
+		"Textures/blocks/tallgrass/5",
+		"Textures/blocks/tallgrass/6",
 	};
+
+	/// <summary>
+	/// 透明纹理
+	/// </summary>
+	public string TransparentTexture = "Textures/blocks/transparent";
 	/// <summary>
 	/// 父节点
 	/// </summary>
@@ -81,7 +95,7 @@ public class MineCraftLayer : UILayer
 				for (int j = 0; j < height; j++) {
 					pos.y = j + minH;
 					Cube newCube = CubeBuilder.CreateCube (_Parent.transform, pos);
-					SetTexture (newCube);
+					SetSurroundTexture (newCube);
 				}
 			}
 		}
@@ -107,12 +121,44 @@ public class MineCraftLayer : UILayer
 		if (cube == null) {
 			return;
 		}
+
 		Vector3 pos = cube.transform.position;
-		if (pos.y > 0)
-			cube.ReplaceTexture(ResourceManger.Instance.Get<Texture>(CubeTextures[0]));
-		else if (pos.y == 0)
-			cube.ReplaceTexture(ResourceManger.Instance.Get<Texture>(CubeTextures[1]));
-		else
-			cube.ReplaceTexture(ResourceManger.Instance.Get<Texture>(CubeTextures[2]));
+		if (pos.y > 0) {
+			cube.ReplaceTexture (Cube.CubeSide.Top, ResourceManger.Instance.Get<Texture> (CubeTextures [0]));
+			cube.ReplaceTexture (Cube.CubeSide.Left, ResourceManger.Instance.Get<Texture> (CubeTextures [1]));
+			cube.ReplaceTexture (Cube.CubeSide.Right, ResourceManger.Instance.Get<Texture> (CubeTextures [1]));
+			cube.ReplaceTexture (Cube.CubeSide.Front, ResourceManger.Instance.Get<Texture> (CubeTextures [1]));
+			cube.ReplaceTexture (Cube.CubeSide.Back, ResourceManger.Instance.Get<Texture> (CubeTextures [1]));
+		} else if (pos.y == 0) {
+			
+			cube.ReplaceTexture (Cube.CubeSide.Left, ResourceManger.Instance.Get<Texture> (CubeTextures [6]));
+			cube.ReplaceTexture (Cube.CubeSide.Right, ResourceManger.Instance.Get<Texture> (CubeTextures [7]));
+			cube.ReplaceTexture (Cube.CubeSide.Front, ResourceManger.Instance.Get<Texture> (CubeTextures [8]));
+			cube.ReplaceTexture (Cube.CubeSide.Back, ResourceManger.Instance.Get<Texture> (CubeTextures [9]));
+
+			cube.ReplaceTexture (Cube.CubeSide.Bottom, ResourceManger.Instance.Get<Texture> (CubeTextures [10]));
+			cube.ReplaceTexture (Cube.CubeSide.Top, ResourceManger.Instance.Get<Texture> (TransparentTexture));
+		} else {
+			cube.ReplaceTexture (Cube.CubeSide.Top, ResourceManger.Instance.Get<Texture> (CubeTextures [2]));
+			cube.ReplaceTexture (Cube.CubeSide.Left, ResourceManger.Instance.Get<Texture> (CubeTextures [3]));
+			cube.ReplaceTexture (Cube.CubeSide.Right, ResourceManger.Instance.Get<Texture> (CubeTextures [3]));
+			cube.ReplaceTexture (Cube.CubeSide.Front, ResourceManger.Instance.Get<Texture> (CubeTextures [3]));
+			cube.ReplaceTexture (Cube.CubeSide.Back, ResourceManger.Instance.Get<Texture> (CubeTextures [3]));
+		}
+
+		//cube.ReplaceTexture (Cube.CubeSide.Top, ResourceManger.Instance.Get<Texture> (TransparentTexture));
+		//cube.SetAlpha (Cube.CubeSide.Top, 0);
+	}
+
+	private void SetSurroundTexture(Cube cube)
+	{
+		if (cube == null) {
+			return;
+		}
+		Vector3 pos = cube.transform.position;
+		cube.ReplaceTexture (Cube.CubeSide.Left, ResourceManger.Instance.Get<Texture> (CubeTextures [5]));
+		cube.ReplaceTexture (Cube.CubeSide.Right, ResourceManger.Instance.Get<Texture> (CubeTextures [5]));
+		cube.ReplaceTexture (Cube.CubeSide.Front, ResourceManger.Instance.Get<Texture> (CubeTextures [5]));
+		cube.ReplaceTexture (Cube.CubeSide.Back, ResourceManger.Instance.Get<Texture> (CubeTextures [5]));
 	}
 }
