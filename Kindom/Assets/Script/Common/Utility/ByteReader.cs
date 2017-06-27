@@ -42,16 +42,41 @@ public class ByteReader
 		}
 		_Data = data;
 	}
-		
-	public T Read<T> () where T : struct, IConvertible
+
+	/// <summary>
+	/// 查看大小
+	/// </summary>
+	/// <returns>The of.</returns>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+	private int SizeOf<T> () where T : struct, IConvertible
 	{
 		int size = System.Runtime.InteropServices.Marshal.SizeOf(typeof(T));
 		if (_Data == null || _Position + size > Length) {
+			Debug.Assert (false, "ByteReader : Read " + typeof(T).ToString () + "overflow!");
+			return 0;
+		}
+
+		return size;
+	}
+		
+	/// <summary>
+	/// 读取数据
+	/// </summary>
+	/// <typeparam name="T">The 1st type parameter.</typeparam>
+	public T Read<T> () where T : struct, IConvertible
+	{
+		IConvertible t = default(T);
+		TypeCode typeCode = t.GetTypeCode ();
+		if (typeCode == TypeCode.Empty
+		    || typeCode == TypeCode.Object
+		    || typeCode == TypeCode.DBNull
+			|| typeCode == TypeCode.String) {
+			Debug.Assert (false, "ByteReader : Read " + typeof(T).ToString () + " failure!");
 			return default(T);
 		}
 
-		IConvertible t = default(T);
-		switch (t.GetTypeCode ()) {
+		int size = SizeOf<T> ();
+		switch (typeCode) {
 		case TypeCode.Boolean:
 			t = BitConverter.ToBoolean (_Data, _Position);
 			break;
@@ -89,10 +114,45 @@ public class ByteReader
 			t = BitConverter.ToDouble (_Data, _Position);
 			break;
 		default:
+			Debug.Assert (false, "ByteReader : Unknow Type " + typeof(T).ToString () + "!");
 			return default(T);
 		}
 		_Position += size;
 		return (T)t;
+	}
+
+	/// <summary>
+	/// 读取字符串
+	/// </summary>
+	/// <returns>The string.</returns>
+	public string ReadString()
+	{
+		int length = Read<int> ();
+		if (_Position + length > Length) {
+			Debug.Assert (false, "ByteReader : Read " + typeof(string).ToString () + "overflow!");
+			return null;
+		}
+
+		String value = null;
+		if (length != 0) {
+			value = BitConverter.ToString (_Data, _Position, length);
+		}
+		_Position += length;
+
+		return value;
+	}
+
+	/// <summary>
+	/// 读取向量
+	/// </summary>
+	/// <returns>The vector3.</returns>
+	public Vector3 ReadVector3()
+	{
+		float x = Read<float> ();
+		float y = Read<float> ();
+		float z = Read<float> ();
+
+		return new Vector3 (x, y, z);
 	}
 }
 

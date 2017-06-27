@@ -3,6 +3,9 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// 输入管理
+/// </summary>
 public class InputManager : SingletonBehaviour<InputManager>
 {
 	private List<Device> _Devices;

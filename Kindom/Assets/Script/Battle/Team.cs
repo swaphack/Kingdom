@@ -12,16 +12,59 @@ public class Team : BNode
 	/// 阵型
 	/// </summary>
 	private Formation _Formation;
+	/// <summary>
+	/// 位置
+	/// </summary>
+	private Vector3 _Position;
 
+	/// <summary>
+	/// 阵型
+	/// </summary>
+	/// <value>The formation.</value>
 	public Formation Formation {
 		get {
 			return _Formation;
 		}
 	}
 
+	/// <summary>
+	/// 位置
+	/// </summary>
+	/// <value>The position.</value>
+	public Vector3 Position {
+		get { 
+			return _Position;
+		}
+	}
+
 	public Team() {
 		_Formation = new Formation ();
 	}
+
+
+	void Start() {
+		this.InvokeRepeating ("Timer", 0, 1);
+	}
+
+	void OnDestory() {
+		this.CancelInvoke ();
+	}
+
+	private void Timer() {
+		_Position = Vector3.zero;
+		int count = 0;
+		ForeachUnit ((int index, Unit unit) => {
+			_Position += unit.transform.position;
+			count = index + 1;
+		});
+
+		if (count == 0) {
+			return;
+		}
+
+		_Position /= count;
+	}
+
 
 	/// <summary>
 	/// 设置阵型

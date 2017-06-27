@@ -7,6 +7,7 @@ public class Root : MonoBehaviour
 	void Awake() {
 		AddGameObject<ResourceManger> ();
 		AddGameObject<InputManager> ();
+		AddGameObject<StepManager> ();
 		AddGameObject<DeviceRoot> ();
 	}
 

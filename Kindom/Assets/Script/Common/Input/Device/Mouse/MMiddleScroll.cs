@@ -10,12 +10,12 @@ public class MMiddleScroll : IDeviceComponent {
 		}
 	}
 
-	private OnScrollDelegate _Handler;
+	private OnScrollHandler _Handler;
 	/// <summary>
 	/// 滑动事件
 	/// </summary>
 	/// <value>The touch event.</value>
-	public OnScrollDelegate Handler { 
+	public OnScrollHandler Handler { 
 		get { 
 			return _Handler;
 		} 

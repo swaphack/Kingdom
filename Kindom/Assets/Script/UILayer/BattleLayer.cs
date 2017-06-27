@@ -157,10 +157,7 @@ public class BattleLayer : UILayer
 
 		Formation f = new Formation ();
 		for (int i = 0; i < childCount; i++) {
-			Vector3 pos;
-			pos.x = reader.Read<float> ();
-			pos.y = reader.Read<float> ();
-			pos.z = reader.Read<float> ();
+			Vector3 pos = reader.ReadVector3 ();
 			f.AddPoint (pos);
 		}
 

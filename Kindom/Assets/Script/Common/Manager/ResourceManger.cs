@@ -3,6 +3,9 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// 资源管理
+/// </summary>
 public class ResourceManger : SingletonBehaviour<ResourceManger>
 {
 	private Dictionary<string, Object> _ResItems;

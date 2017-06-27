@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Geography.Ground.Sample;
 
 public class MainLayer : UILayer {
 
@@ -12,7 +13,7 @@ public class MainLayer : UILayer {
 	/// <summary>
 	/// 地图创造者
 	/// </summary>
-	public GroundBuilder Builder;
+	public Builder Builder;
 
 	private UIImage _Image;
 	private UIButton _LastTouchUI;

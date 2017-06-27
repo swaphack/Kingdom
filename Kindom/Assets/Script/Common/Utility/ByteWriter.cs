@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using UnityEngine;
 
 public class ByteWriter
 {
@@ -94,6 +95,24 @@ public class ByteWriter
 	public void Write(double value)
 	{
 		Write (BitConverter.GetBytes (value));
+	}
+
+	public void Write(string value)
+	{
+		if (string.IsNullOrEmpty (value)) {
+			Write (0);
+		} else {
+			byte[] bytes = System.Text.Encoding.UTF8.GetBytes (value);
+			Write (bytes.Length);
+			Write (bytes);
+		}
+	}
+
+	public void Write(Vector3 vertor)
+	{
+		Write (vertor.x);
+		Write (vertor.y);
+		Write (vertor.z);
 	}
 }
 

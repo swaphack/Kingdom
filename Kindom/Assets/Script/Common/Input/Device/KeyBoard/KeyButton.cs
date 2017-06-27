@@ -17,12 +17,12 @@ public class KeyButton : IDeviceComponent
 	/// 键盘事件
 	/// </summary>
 	/// <value>The keyboard delegate.</value>
-	private OnKeyboardDelegate _Handler;
+	private OnKeyboardHandler _Handler;
 	/// <summary>
 	/// 键盘事件
 	/// </summary>
 	/// <value>The keyboard delegate.</value>
-	public OnKeyboardDelegate Handler {
+	public OnKeyboardHandler Handler {
 		get { 
 			return _Handler;
 		}

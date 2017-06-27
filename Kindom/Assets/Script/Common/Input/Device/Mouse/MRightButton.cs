@@ -10,13 +10,13 @@ public class MRightButton : IDeviceComponent {
 		}
 	}
 
-	private OnTouchDelegate _Handler;
+	private OnTouchHandler _Handler;
 
 	/// <summary>
 	/// 触摸事件
 	/// </summary>
 	/// <value>The touch event.</value>
-	public OnTouchDelegate Handler { 
+	public OnTouchHandler Handler { 
 		get { 
 			return _Handler;
 		} 

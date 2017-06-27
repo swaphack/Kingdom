@@ -28,9 +28,7 @@ public class FormationMake : EditorMake
 		writer.Write (childCount);
 		for (int i = 0; i < childCount; i++) {
 			Vector3 pos = this.transform.GetChild(i).position;
-			writer.Write (pos.x);
-			writer.Write (pos.y);
-			writer.Write (pos.z);
+			writer.Write (pos);
 		}
 		SaveData (writer);
 	} 
@@ -50,10 +48,7 @@ public class FormationMake : EditorMake
 		int childCount = reader.Read<int> ();
 		for (int i = 0; i < childCount; i++) {
 			GameObject go = CreateGameObject ();
-			Vector3 pos;
-			pos.x = reader.Read<float> ();
-			pos.y = reader.Read<float> ();
-			pos.z = reader.Read<float> ();
+			Vector3 pos = reader.ReadVector3 ();
 			go.transform.position = pos;
 		}
 
