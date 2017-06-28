@@ -8,7 +8,7 @@ public class FormationEditor : DataInspectorEditor
 	/// 所在目录
 	/// </summary>
 	/// <value>The dir.</value>
-	public static string Dir {
+	public override string Dir {
 		get { 
 			return "Resources/Formation/";
 		}
@@ -22,11 +22,6 @@ public class FormationEditor : DataInspectorEditor
 			return;
 		}
 
-		FormationMake fm = AppendComponent<FormationMake>(firstChild);
-		if (fm == null) {
-			return;
-		}
-
-		fm.Url = Dir + firstChild.name + ".bytes";
+		AppendComponent<FormationMake>(firstChild);
 	}
 }

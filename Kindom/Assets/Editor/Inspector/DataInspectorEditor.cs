@@ -6,7 +6,7 @@ using UnityEditor;
 /// 数据面板编辑器
 /// 所有二进制文件均要.bytes结尾
 /// </summary>
-public class DataInspectorEditor : InspectorEditor
+public class DataInspectorEditor : BaseEditor
 {
 	/// <summary>
 	/// 所在目录
@@ -26,8 +26,21 @@ public class DataInspectorEditor : InspectorEditor
 		return (T)target;
 	}
 
+	/// <summary>
+	/// 默认存储目录
+	/// </summary>
+	/// <value>The dir.</value>
+	public virtual string Dir {
+		get { 
+			return "";
+		}
+	}
+
 	void OnEnable() {
 		_EditorMake = (EditorMake)target as EditorMake;
+		if (string.IsNullOrEmpty (_EditorMake.Url)) {
+			_EditorMake.Url = Dir + _EditorMake.name + ".bytes";
+		}
 		Url = _EditorMake.Url;
 	}
 
@@ -37,7 +50,17 @@ public class DataInspectorEditor : InspectorEditor
 	public override void OnInspectorGUI ()
 	{
 		EditorGUILayout.Space ();
-		Url = EditorGUILayout.TextField ("Save To:", Url);
+
+		EditorGUILayout.BeginHorizontal ();
+		EditorGUILayout.LabelField ("Scene");
+		if (GUILayout.Button ("Remove All GameObjects")) {
+			Clear ();
+		}
+		EditorGUILayout.EndHorizontal ();
+
+		EditorGUILayout.Space ();
+
+		Url = EditorGUILayout.TextField ("Filepath:", Url);
 		EditorGUILayout.BeginHorizontal ();
 		if (GUILayout.Button ("Save")) {
 			Save ();
@@ -45,15 +68,9 @@ public class DataInspectorEditor : InspectorEditor
 		if (GUILayout.Button ("Load")) {
 			Load ();
 		}
-		if (GUILayout.Button ("Clear")) {
-			Clear ();
-		}
 		EditorGUILayout.EndHorizontal ();
 
-		if (GUI.changed)
-		{
-			EditorUtility.SetDirty(target);
-		}
+		Flush ();
 	}
 
 	/// <summary>

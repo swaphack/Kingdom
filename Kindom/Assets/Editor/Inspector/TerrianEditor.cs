@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(TerrianMake))]
+[CustomEditor(typeof(TerrainMake))]
 public class TerrianEditor : DataInspectorEditor 
 {
 	/// <summary>
 	/// 所在目录
 	/// </summary>
 	/// <value>The dir.</value>
-	public static string Dir {
+	public override string Dir {
 		get { 
 			return "Resources/Map/";
 		}
@@ -22,17 +22,12 @@ public class TerrianEditor : DataInspectorEditor
 			return;
 		}
 
-		TerrianMake mm = AppendComponent<TerrianMake>(firstChild);
-		if (mm == null) {
-			return;
-		}
-
-		mm.Url = Dir + firstChild.name + ".bytes";
+		AppendComponent<TerrainMake>(firstChild);
 	}
 
 	public override void OnInspectorGUI ()
 	{
-		TerrianMake make = GetTarget<TerrianMake> ();
+		TerrainMake make = GetTarget<TerrainMake> ();
 		EditorGUILayout.BeginVertical ();
 		make.Seed = EditorGUILayout.IntField ("Seed", make.Seed);
 		make.Width = EditorGUILayout.IntField ("Width", make.Width);
@@ -48,6 +43,6 @@ public class TerrianEditor : DataInspectorEditor
 	}
 
 	private void Generate() {
-		GetTarget<TerrianMake> ().Generate ();
+		GetTarget<TerrainMake> ().Generate ();
 	}
 }

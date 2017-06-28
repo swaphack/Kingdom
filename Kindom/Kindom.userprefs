@@ -1,12 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Geography\Ground\Base\Tile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Common\Utility\ConfigReader.cs">
     <Files>
-      <File FileName="Assets\Script\Geography\Map\Base\WorldMap.cs" Line="15" Column="1" />
-      <File FileName="Assets\Script\Geography\Ground\Base\GroundBase.cs" Line="62" Column="41" />
-      <File FileName="Assets\Script\Geography\Ground\Base\Tile.cs" Line="10" Column="3" />
-      <File FileName="Assets\Script\Geography\Map\Base\Map.cs" Line="11" Column="3" NotebookId="1" />
-      <File FileName="Assets\Script\Geography\Terrian\Base\Cube.cs" Line="353" Column="4" NotebookId="1" />
+      <File FileName="Assets\Script\Common\Utility\CSVReader.cs" Line="217" Column="4" />
+      <File FileName="Assets\Geography\Map\Base\Area.cs" Line="11" Column="16" NotebookId="1" />
+      <File FileName="Assets\Script\Common\Utility\ConfigReader.cs" Line="23" Column="3" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -14,6 +12,7 @@
       <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Script\Common\UI\RectTransform\UIRelativeBox.cs" line="13" column="1" />
       <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Script\Map\Ground\GroundLayer.cs" line="20" column="22" />
       <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Script\Map\Layer\Building.cs" line="156" column="1" />
+      <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Editor\Inspector\DataInspectorEditor.cs" line="91" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

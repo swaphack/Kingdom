@@ -35,6 +35,11 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 	public RotationType RotateType;
 
 	/// <summary>
+	/// 滚动缩放比例
+	/// </summary>
+	public float ScrollRate = 10;
+
+	/// <summary>
 	/// 是否必须需要对象
 	/// </summary>
 	/// <value><c>true</c> if need touch target; otherwise, <c>false</c>.</value>
@@ -159,7 +164,7 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 	}*/
 
 	void OnMoveView (float scrollRate) {
-		Vector3 offset = this.transform.forward * scrollRate;
+		Vector3 offset = this.transform.forward * scrollRate * ScrollRate;
 		this.transform.localPosition += offset ;
 	}
 }
