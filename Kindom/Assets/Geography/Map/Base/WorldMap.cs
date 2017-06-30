@@ -9,6 +9,11 @@ namespace Geography.Map
 	/// </summary>
 	public class WorldMap : MonoBehaviour 
 	{
-		public string 
+		public string DefaultFilePath = "Data/default";
+
+		void Start() {
+			MapData mapData = new MapData();
+			mapData.LoadFromFile (DefaultFilePath);
+		}
 	}
 }

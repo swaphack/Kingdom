@@ -70,7 +70,9 @@
      <Compile Include="Assets\Geography\Ground\Sample\TurfLayer.cs" />
      <Compile Include="Assets\Geography\Map\Base\Area.cs" />
      <Compile Include="Assets\Geography\Map\Base\Background.cs" />
+     <Compile Include="Assets\Geography\Map\Base\DataParser.cs" />
      <Compile Include="Assets\Geography\Map\Base\MapBackground.cs" />
+     <Compile Include="Assets\Geography\Map\Base\MapData.cs" />
      <Compile Include="Assets\Geography\Map\Base\WorldMap.cs" />
      <Compile Include="Assets\Geography\Terrian\Base\Cube.cs" />
      <Compile Include="Assets\Geography\Terrian\Base\Data.cs" />
@@ -184,7 +186,6 @@
      <Compile Include="Assets\Script\Common\Utility\ByteReader.cs" />
      <Compile Include="Assets\Script\Common\Utility\ByteWriter.cs" />
      <Compile Include="Assets\Script\Common\Utility\CSVReader.cs" />
-     <Compile Include="Assets\Script\Common\Utility\ConfigReader.cs" />
      <Compile Include="Assets\Script\Common\Utility\Constants.cs" />
      <Compile Include="Assets\Script\Common\Utility\Mesh2D.cs" />
      <Compile Include="Assets\Script\Common\Utility\Singleton.cs" />
