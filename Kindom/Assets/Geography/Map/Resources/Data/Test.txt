@@ -1,0 +1,49 @@
+﻿type=
+	{
+		type="eagle"
+		use_animation=yes
+		scale=0.300000
+		time_duration=300.000000
+		object=
+		{
+			name="Eagle_Alps"
+			position=
+			{
+				2920.000 15.350 1416.000 
+			}
+			rotation=
+			{
+				0.000 45.000 0.000 
+			}
+		}
+		object=
+		{
+			name="Eagle_Alps"
+			position=
+			{
+				2927.000 12.400 1749.000 
+			}
+			rotation=
+			{
+				0.000 45.000 0.000 
+			}
+		}
+	}
+
+terrain
+{
+	plains				= { type = plains			color = { 	0	 } }
+}
+
+categories =  {
+	pti = {
+	}
+
+	ocean = {
+		movement_cost = 1.0
+		is_water = yes
+		sound_type = sea
+	}
+}
+
+

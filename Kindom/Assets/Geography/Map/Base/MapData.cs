@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using Geography.Map.Document;
 
 namespace Geography.Map
 {
@@ -11,43 +12,8 @@ namespace Geography.Map
 	/// </summary>
 	public class MapData
 	{
-		public class DataItem
-		{
-			private string _Key;
-			private string _Value;
-			private Dictionary<string, DataItem> _Children;
-
-			public string Key {
-				get { 
-					return _Key; 
-				}
-			}
-			public string Value {
-				get { 
-					return _Value; 
-				}
-				set { 
-					_Value = value;
-				}
-			}
-
-			public Dictionary<string, DataItem> Children {
-				get { 
-					return _Children;
-				}
-			}
-
-			public DataItem(string key) {
-				_Key = key;
-				_Children = new Dictionary<string, DataItem>();
-			}
-		}
-
-		private Dictionary<string, DataItem> _DataItems;
-
 		public MapData()
 		{
-			_DataItems = new Dictionary<string, DataItem> ();
 		}
 
 		/// <summary>
@@ -79,7 +45,13 @@ namespace Geography.Map
 				return false;
 			}
 
-			return new DataParser ().Load (data, _DataItems);
+			MapDocument doc = new MapDocument ();
+			bool result = doc.Load (data);
+			if (!result) {
+				return false;
+			}
+
+			return true;
 		}
 	}
 
