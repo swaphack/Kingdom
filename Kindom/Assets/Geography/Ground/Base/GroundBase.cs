@@ -7,7 +7,7 @@ namespace Geography.Ground
 	/// <summary>
 	/// 地皮
 	/// </summary>
-	public class GroundBase : MonoBehaviour
+	public class GroundBase : MonoBehaviour, IInitialization
 	{
 		/// <summary>
 		/// 地皮块大小
@@ -25,11 +25,11 @@ namespace Geography.Ground
 
 		void Start ()
 		{
-			Init ();
+			Initialize ();
 
 		}
 
-		protected virtual void Init() {
+		public virtual void Initialize() {
 			this.transform.localScale = Tool.GetScale (TileSize, TileCount);
 		}
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using Geography.Map.Document;
+using Document;
 
 namespace Geography.Map
 {
@@ -12,8 +13,89 @@ namespace Geography.Map
 	/// </summary>
 	public class MapData
 	{
+		private IElement _Root;
+
+		public Node Root {
+			get { 
+				return (Node)_Root;
+			}
+		}
+
 		public MapData()
 		{
+		}
+
+		/// <summary>
+		/// 获取值
+		/// </summary>
+		/// <returns>The node.</returns>
+		/// <param name="key">Key.</param>
+		public Node GetNode(string key) {
+			if (string.IsNullOrEmpty (key)) {
+				return null;
+			}
+
+			if (_Root == null) {
+				return null;
+			}
+
+			string[] names = key.Split('.');
+
+			IElement node = _Root;
+
+			for (int i = 0; i < names.Length; i++) {
+				IElement child = node.GetChild (names [i]);
+				if (child == null) {
+					return null;
+				}
+				node = child;
+			}
+
+			return (Node)node;
+		}
+
+		/// <summary>
+		///  获取值
+		/// </summary>
+		/// <returns>The value.</returns>
+		/// <param name="key">Key.</param>
+		public string GetValue(string key){
+			if (string.IsNullOrEmpty (key)) {
+				return null;
+			}
+
+			if (Root == null) {
+				return null;
+			}
+
+			Node node = GetNode (key);
+			if (node == null) {
+				return null;
+			}
+
+			return node.Value;
+		}
+
+		/// <summary>
+		///  获取值
+		/// </summary>
+		/// <returns>The value.</returns>
+		/// <param name="key">Key.</param>
+		public string[] GetValueArray(string key){
+			if (string.IsNullOrEmpty (key)) {
+				return null;
+			}
+
+			if (Root == null) {
+				return null;
+			}
+
+			Node node = GetNode (key);
+			if (node == null) {
+				return null;
+			}
+
+			return node.ValueAry;
 		}
 
 		/// <summary>
@@ -39,20 +121,20 @@ namespace Geography.Map
 		/// 加载数据
 		/// </summary>
 		/// <param name="data">Data.</param>
-		public bool Load(string data)
+		private bool Load(string data)
 		{
 			if (string.IsNullOrEmpty (data)) {
 				return false;
 			}
 
-			MapDocument doc = new MapDocument ();
+			MapFile doc = new MapFile ();
 			bool result = doc.Load (data);
 			if (!result) {
 				return false;
 			}
 
+			_Root = doc.Root;
 			return true;
 		}
 	}
-
 }

@@ -132,7 +132,7 @@ public class BattleLayer : UILayer
 		for (int i = 0; i < f.Count; i++) {
 			GameObject child = GameObject.CreatePrimitive (PrimitiveType.Sphere);
 			Unit unit = child.AddComponent<Unit> ();
-			unit.Init ();
+			unit.Initialize ();
 			child.transform.position = f.GetPoint (i);
 			UILayer.AddChild (team, unit);
 		}

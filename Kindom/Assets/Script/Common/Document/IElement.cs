@@ -14,11 +14,6 @@ namespace Document
 		/// <value>The key.</value>
 		string Key { get; set; }
 		/// <summary>
-		/// 属性
-		/// </summary>
-		/// <value>The attributes.</value>
-		List<Attribute> Attributes { get; }
-		/// <summary>
 		/// 父节点
 		/// </summary>
 		/// <value>The parent.</value>
@@ -28,6 +23,11 @@ namespace Document
 		/// </summary>
 		/// <value>The children.</value>
 		List<IElement> Children { get; }
+		/// <summary>
+		/// 获取自己子节点
+		/// </summary>
+		/// <param name="index">Index.</param>
+		IElement this[int index] { get; }
 		/// <summary>
 		/// 添加子节点
 		/// </summary>

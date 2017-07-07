@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 
-public class UIControl : MonoBehaviour
+public class UIControl : MonoBehaviour, IInitialization
 {	
 	/// <summary>
 	/// 控件处理事件
@@ -77,7 +77,7 @@ public class UIControl : MonoBehaviour
 
 		T t = AppendComponent<T> (component);
 		if (t != null) {
-			t.Init ();
+			t.Initialize ();
 		}
 
 		return t;
@@ -260,7 +260,7 @@ public class UIControl : MonoBehaviour
 		AddChild (this, child);
 	}
 
-	public void Init() {
+	public void Initialize() {
 		this.InitControl ();
 	}
 

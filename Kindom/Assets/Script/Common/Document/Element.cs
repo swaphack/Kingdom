@@ -12,7 +12,6 @@ namespace Document
 
 		private List<IElement> _Children;
 		private IElement _Parent;
-		private List<Attribute> _Attributes;
 
 		public override string ToString () {
 			return _Key;
@@ -28,16 +27,6 @@ namespace Document
 			set { 
 				_Key = value;
 			}
-		}
-
-		/// <summary>
-		/// 属性
-		/// </summary>
-		/// <value>The attributes.</value>
-		public List<Attribute> Attributes { 
-			get { 
-				return _Attributes;
-			} 
 		}
 		/// <summary>
 		/// 父节点
@@ -63,8 +52,16 @@ namespace Document
 
 		public Element()
 		{
-			_Children = new List<IElement> ();		
-			_Attributes = new List<Attribute> ();
+			_Children = new List<IElement> ();
+		}
+
+		public IElement this[int index] {
+			get { 
+				if (index < 0 || index >= _Children.Count) {
+					return null;
+				}
+				return _Children [index];
+			}
 		}
 
 		/// <summary>
@@ -94,8 +91,9 @@ namespace Document
 			if (_Children.Contains (child)) {
 				_Children.Remove (child);
 			}
-
 		}
+
+
 		/// <summary>
 		/// 获取子节点
 		/// </summary>

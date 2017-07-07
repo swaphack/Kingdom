@@ -188,9 +188,9 @@ namespace Geography.Terrian
 		/// <summary>
 		/// 初始化
 		/// </summary>
-		public override void Init ()
+		public override void Initialize ()
 		{
-			base.Init ();
+			base.Initialize ();
 
 			_Collider = this.GetComponent<Collider> ();
 

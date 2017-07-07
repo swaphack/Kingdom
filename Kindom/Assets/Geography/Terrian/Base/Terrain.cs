@@ -66,7 +66,7 @@ namespace Geography.Terrian
 			GameObject go = new GameObject ();
 
 			Cube newCube = go.AddComponent<Cube> ();
-			newCube.Init ();
+			newCube.Initialize ();
 			newCube.transform.position = data.Position;
 			newCube.transform.SetParent (this.transform);
 

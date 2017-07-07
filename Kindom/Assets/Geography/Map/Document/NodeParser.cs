@@ -237,7 +237,7 @@ namespace Geography.Map.Document
 			int p1 = 0;
 			int endIdx = 0;
 			while (p1 < value.Length) {
-				IElement e = MapFilter.Instance.Match (value, p1, out endIdx);
+				IElement e = DocFilter.Instance.Match (value, p1, out endIdx);
 				if (e != null) {
 					parent.AddChild (e);		
 					p1 = endIdx;
@@ -275,7 +275,7 @@ namespace Geography.Map.Document
 					int idx = value.LastIndexOf(' ', value.LastIndexOf('=') - 2);
 					idx = idx < 0 ? 0 : idx;
 					sb = new StringBuilder(value.Substring(0, idx));
-					IElement child = MapFilter.Instance.Match (data, pos - value.Length + idx, out endIdx);
+					IElement child = DocFilter.Instance.Match (data, pos - value.Length + idx, out endIdx);
 					if (child != null) {
 						node.AddChild (child);
 						pos = endIdx;

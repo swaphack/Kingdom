@@ -4,13 +4,11 @@ using Geography.Ground;
 
 namespace Geography.Ground.Sample
 {
-	
-
 	public class Ground : GroundBase
 	{
-		protected override void Init ()
+		public override void Initialize ()
 		{
-			base.Init ();
+			base.Initialize ();
 			this.AddLayer<TurfLayer> (GROUND_OFFSET);
 			this.AddLayer<BuildingLayer> (2 * GROUND_OFFSET);
 			this.AddLayer<RoleLayer> (2 * GROUND_OFFSET);

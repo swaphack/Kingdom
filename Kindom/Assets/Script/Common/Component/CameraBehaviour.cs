@@ -8,11 +8,32 @@ using System.Collections;
 public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 {
 	/// <summary>
+	/// 触摸响应类型
+	/// </summary>
+	public enum TouchRespondType
+	{
+		/// <summary>
+		/// 移动
+		/// </summary>
+		Transfer,
+		/// <summary>
+		/// 旋转
+		/// </summary>
+		Rotation,
+	}
+
+	/// <summary>
 	/// 旋转类型
 	/// </summary>
 	public enum RotationType
 	{
+		/// <summary>
+		/// 绕自身旋转
+		/// </summary>
 		Self,
+		/// <summary>
+		/// 绕世界旋转
+		/// </summary>
 		World,
 	}
 	
@@ -22,6 +43,16 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 	private bool _EnableRotate = true;
 
 	/// <summary>
+	/// 触摸响应类型
+	/// </summary>
+	public TouchRespondType RespondType;
+
+	/// <summary>
+	/// 旋转类型
+	/// </summary>
+	public RotationType RotateType;
+
+	/// <summary>
 	/// 水平旋转是否固定
 	/// </summary>
 	public bool FixedHorizontalRotation;
@@ -29,15 +60,15 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 	/// 垂直旋转是否固定
 	/// </summary>
 	public bool FixedVerticalRotation;
-	/// <summary>
-	/// 旋转类型
-	/// </summary>
-	public RotationType RotateType;
 
 	/// <summary>
 	/// 滚动缩放比例
 	/// </summary>
 	public float ScrollRate = 10;
+	/// <summary>
+	/// 移动缩放比例
+	/// </summary>
+	public float TransferRate = 3.5f;
 
 	/// <summary>
 	/// 是否必须需要对象
@@ -73,7 +104,7 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 			_lastTouchPoint = Input.mousePosition;
 		} else if (touchPhase == TouchPhase.Moved) {
 			Vector3 diff = Input.mousePosition - _lastTouchPoint;
-			OnRotateView (diff);
+			OnResponseTouch (diff);
 			_lastTouchPoint = Input.mousePosition;
 		} else if (touchPhase == TouchPhase.Ended) {
 			_lastTouchPoint = Vector3.zero;
@@ -127,6 +158,25 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 	}
 
 	/// <summary>
+	/// 响应触摸
+	/// </summary>
+	/// <param name="direction">Direction.</param>
+	void OnResponseTouch(Vector3 direction) {
+		if (RespondType == TouchRespondType.Rotation) {
+			OnRotateView (direction);
+		} else {
+			Camera camera = this.GetComponent<Camera> ();
+			if (direction.x != 0) {
+				camera.transform.Translate (this.transform.right * TransferRate * (-direction.x / Mathf.Abs(direction.x)));
+			}
+
+			if (direction.y != 0) {
+				camera.transform.Translate (this.transform.forward * TransferRate * (direction.y / Mathf.Abs(direction.y)));
+			}
+		}
+	}
+
+	/// <summary>
 	/// 滑动视角
 	/// </summary>
 	void OnRotateView(Vector3 direction) {
@@ -146,22 +196,6 @@ public class CameraBehaviour : MonoBehaviour, ITouchEvent, IScrollEvent
 			camera.transform.RotateAround (_InitTouchPoint, right, -direction.y);
 		}
 	}
-
-	/*
-	/// <summary>
-	/// 滚动视角
-	/// </summary>
-	/// <param name="scrollRate">Scroll rate.</param>
-	void OnScrollView(float scrollRate) {
-		Camera camera = this.GetComponent<Camera> ();
-		float value = camera.fieldOfView;
-		value -= scrollRate;
-		if (value < 1)
-			value = 1;
-		if (value > 179)
-			value = 179;
-		camera.fieldOfView = value;
-	}*/
 
 	void OnMoveView (float scrollRate) {
 		Vector3 offset = this.transform.forward * scrollRate * ScrollRate;

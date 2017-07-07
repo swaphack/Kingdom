@@ -24,9 +24,14 @@ namespace Geography.Map
 		/// 颜色
 		/// </summary>
 		public Color Color;
+
+		protected string matUrl = "Materials/AreaMat";
 		
-		protected override void Init() {
-			base.Init ();
+		public override void Initialize() {
+			base.Initialize ();
+
+			Material mat = ResourceManger.Instance.Get<Material> (matUrl);
+			meshRenderer.material = mat;
 
 			Mesh2D.CreateVecticeMesh (meshFilter, Vectices);
 			Mesh2D.CreateColorMaterial (meshRenderer, Color);

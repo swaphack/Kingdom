@@ -47,7 +47,7 @@ namespace Geography.Ground.Sample
 			go.transform.position = pos;
 			go.AddComponent<ModelBehaviour> ();
 			Unit unit = go.AddComponent<Unit> ();
-			unit.Init ();
+			unit.Initialize ();
 			return unit;
 		}
 

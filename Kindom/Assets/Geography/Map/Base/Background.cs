@@ -7,17 +7,13 @@ namespace Geography.Map
 	/// 背景
 	/// </summary>
 	[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
-	public class Background : MonoBehaviour
+	public class Background : MonoBehaviour, IInitialization
 	{
 		protected MeshFilter meshFilter;
 		protected MeshRenderer meshRenderer;
 		protected MeshCollider meshCollider;
 
-		void Start() {
-			this.Init ();
-		}
-
-		protected virtual void Init() {
+		public virtual void Initialize() {
 			meshFilter = this.GetComponent<MeshFilter> ();
 			meshRenderer = this.GetComponent<MeshRenderer> ();
 			meshCollider = this.GetComponent<MeshCollider> ();

@@ -5,20 +5,10 @@ namespace Document
 	public interface IDocument
 	{
 		/// <summary>
-		/// 数据
+		/// 根节点
 		/// </summary>
-		/// <value>The data.</value>
-		string Data { get; }
-		/// <summary>
-		/// 长度
-		/// </summary>
-		/// <value>The length.</value>
-		int Length { get; }
-		/// <summary>
-		/// 游标所在位置
-		/// </summary>
-		/// <value>The position.</value>
-		int Position { get; set; }
+		/// <value>The root.</value>
+		IElement Root { get; }
 		/// <summary>
 		/// 从文件加载
 		/// </summary>

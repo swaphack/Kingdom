@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 /// 模型组件
 /// </summary>
 [RequireComponent(typeof(HighlightableObject))]
-public class ModelBehaviour : MonoBehaviour, ITouchModel
+public class ModelBehaviour : MonoBehaviour, ITouchModel,IInitialization
 {
 	/// <summary>
 	/// 外发光颜色
@@ -231,7 +231,7 @@ public class ModelBehaviour : MonoBehaviour, ITouchModel
 	/// <summary>
 	/// 初始化
 	/// </summary>
-	public virtual void Init() {
+	public virtual void Initialize() {
 		_HighlightableObject = GetComponent<HighlightableObject> ();
 		_Renderer = GetComponent<Renderer> ();
 	}

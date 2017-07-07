@@ -5,11 +5,11 @@ using System.Collections;
 /// 单位
 /// </summary>
 [RequireComponent(typeof(PathFinderBehaviour))]
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour, IInitialization
 {
 	private PathFinderBehaviour _PathFinder;
 
-	public virtual void Init() {
+	public virtual void Initialize() {
 		_PathFinder = this.GetComponent<PathFinderBehaviour> ();
 	}
 

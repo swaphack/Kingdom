@@ -78,6 +78,7 @@
      <None Include="Assets\Geography\Map\Resources\Data\terrain.txt" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_IceDecal.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Lava.shader" />
+     <None Include="Assets\Geography\Map\Resources\Data\Test.txt" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalStandard.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashMobile.shader" />
      <None Include="Assets\Geography\Map\Resources\Data\ambient_object.txt" />
