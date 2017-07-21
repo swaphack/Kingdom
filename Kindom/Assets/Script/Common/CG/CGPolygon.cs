@@ -33,11 +33,11 @@ namespace Common.CG
 			int triangleCount = points.Length - 2;
 			int[] indices = new int[triangleCount * 3];
 
-			lis
-
 			for (int i = 0; i < points.Length; i++) {
 				
 			}
+
+			return null;
 		}
 	}
 }
