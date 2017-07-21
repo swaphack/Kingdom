@@ -2,117 +2,121 @@
 using System.IO;
 using UnityEngine;
 
-public class ByteWriter
+namespace Common.Utility
 {
-	MemoryStream _MemorySteam;
 
-	public ByteWriter (int capacity)
+	public class ByteWriter
 	{
-		_MemorySteam = new MemoryStream (capacity); 
-	}
+		MemoryStream _MemorySteam;
 
-	private void Write(byte[] bytes) 
-	{
-		if (bytes == null || bytes.Length == 0) {
-			return;
+		public ByteWriter (int capacity)
+		{
+			_MemorySteam = new MemoryStream (capacity); 
 		}
 
-		_MemorySteam.Write (bytes, 0, (int)bytes.Length);
-	}
+		private void Write (byte[] bytes)
+		{
+			if (bytes == null || bytes.Length == 0) {
+				return;
+			}
 
-	/// <summary>
-	/// 获取内存数据
-	/// </summary>
-	/// <returns>The array.</returns>
-	public byte[] ToArray()
-	{
-		return _MemorySteam.ToArray ();
-	}
+			_MemorySteam.Write (bytes, 0, (int)bytes.Length);
+		}
 
-	/// <summary>
-	/// 关闭
-	/// </summary>
-	public void Close()
-	{
-		_MemorySteam.Close ();
-	}
+		/// <summary>
+		/// 获取内存数据
+		/// </summary>
+		/// <returns>The array.</returns>
+		public byte[] ToArray ()
+		{
+			return _MemorySteam.ToArray ();
+		}
 
-	public void Write(bool value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		/// <summary>
+		/// 关闭
+		/// </summary>
+		public void Close ()
+		{
+			_MemorySteam.Close ();
+		}
 
-	public void Write(char value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (bool value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(sbyte value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (char value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(byte value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (sbyte value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(short value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (byte value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(ushort value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (short value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(int value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (ushort value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(uint value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (int value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(long value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (uint value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(ulong value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (long value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(float value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (ulong value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(double value)
-	{
-		Write (BitConverter.GetBytes (value));
-	}
+		public void Write (float value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
 
-	public void Write(string value)
-	{
-		if (string.IsNullOrEmpty (value)) {
-			Write (0);
-		} else {
-			byte[] bytes = System.Text.Encoding.UTF8.GetBytes (value);
-			Write (bytes.Length);
-			Write (bytes);
+		public void Write (double value)
+		{
+			Write (BitConverter.GetBytes (value));
+		}
+
+		public void Write (string value)
+		{
+			if (string.IsNullOrEmpty (value)) {
+				Write (0);
+			} else {
+				byte[] bytes = System.Text.Encoding.UTF8.GetBytes (value);
+				Write (bytes.Length);
+				Write (bytes);
+			}
+		}
+
+		public void Write (Vector3 vertor)
+		{
+			Write (vertor.x);
+			Write (vertor.y);
+			Write (vertor.z);
 		}
 	}
 
-	public void Write(Vector3 vertor)
-	{
-		Write (vertor.x);
-		Write (vertor.y);
-		Write (vertor.z);
-	}
 }
-

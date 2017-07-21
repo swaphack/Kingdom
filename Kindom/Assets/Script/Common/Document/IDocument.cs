@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Document
+namespace Common.Document
 {
 	public interface IDocument
 	{

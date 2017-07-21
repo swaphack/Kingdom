@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/// <summary>
-/// 单例行为
-/// </summary>
-public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<T>
+namespace Common.Utility
 {
-	private static T s_Instance;
+	/// <summary>
+	/// 单例行为
+	/// </summary>
+	public class SingletonBehaviour<T> : MonoBehaviour where T : SingletonBehaviour<T>
+	{
+		private static T s_Instance;
 
-	public static T Instance {
-		get { 
-			return s_Instance;
+		public static T Instance {
+			get { 
+				return s_Instance;
+			}
+		}
+
+		protected SingletonBehaviour ()
+		{
+			s_Instance = (T)this;
 		}
 	}
 
-	protected SingletonBehaviour()
-	{
-		s_Instance = (T)this;
-	}
 }
-

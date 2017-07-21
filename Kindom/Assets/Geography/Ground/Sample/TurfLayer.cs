@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Geography.Ground;
+using Common.Utility;
 
 namespace Geography.Ground.Sample
 {

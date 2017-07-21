@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Common.Utility;
 
 public class UIControl : MonoBehaviour, IInitialization
 {	

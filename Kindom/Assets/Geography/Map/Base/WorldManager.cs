@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Geography.Map.Document;
+using Geography.Map.Document.JSON;
 using System.Text.RegularExpressions;
-using Document;
+using Common.Document;
+using Common.Utility;
 
 namespace Geography.Map
 {
@@ -65,13 +67,33 @@ namespace Geography.Map
 			return ResourceManger.Instance.GetString ("Data/" + GetUrl (name));
 		}
 
+		private void InitProvinces() {
+			
+		}
+
 		void Start() {
-			MapData mapData = new MapData();
-			mapData.LoadFromFile (DefaultFilePath);
+			string data; 
+			/*
+			data = ResourceManger.Instance.GetString (DefaultFilePath);
+			JSONData mapData = new JSONData();
+			mapData.Load (data);
 			Texture texture = GetImage (mapData.GetValue("provinces"));
 			WorldMap map = Tool.CreateChild<WorldMap> (this);
 			map.Image = texture;
 			map.Initialize ();
+			*/
+
+			data = ResourceManger.Instance.GetString ("Provinces/ghost");
+			SimpleJSNode node = new SimpleJS ().Load (data);
+
+			GameObject go = new GameObject ();
+			Area area = go.AddComponent<Area> ();
+			area.Vectices = node.Positions;
+			area.Color = Color.red;
+			area.name = node.Name;
+			area.Initialize ();
+
+			area.transform.SetParent (this.transform);
 		}
 	}
 }

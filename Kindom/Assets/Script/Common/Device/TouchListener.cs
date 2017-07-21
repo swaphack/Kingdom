@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Common.Utility;
 
 public class TouchListener : SingletonBehaviour<TouchListener>, ITouchEvent
 {

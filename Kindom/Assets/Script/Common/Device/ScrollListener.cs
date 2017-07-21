@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using Common.Utility;
 
 public class ScrollListener : SingletonBehaviour<ScrollListener>, ITouchEvent
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Document
+namespace Common.Document
 {
 	/// <summary>
 	/// 可序列化

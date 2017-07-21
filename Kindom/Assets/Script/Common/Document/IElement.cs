@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Document
+namespace Common.Document
 {
 	/// <summary>
 	/// 元素

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Common.Utility;
 
 namespace Geography.Map
 {
@@ -12,14 +13,6 @@ namespace Geography.Map
 		/// 顶点坐标
 		/// </summary>
 		public Vector2[] Vectices;
-		/// <summary>
-		/// 旋转
-		/// </summary>
-		public float[] Rotations;
-		/// <summary>
-		/// 高位图
-		/// </summary>
-		public float[] Heights;
 		/// <summary>
 		/// 颜色
 		/// </summary>

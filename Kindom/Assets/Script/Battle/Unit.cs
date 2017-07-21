@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Common.Utility;
 
 /// <summary>
 /// 单位

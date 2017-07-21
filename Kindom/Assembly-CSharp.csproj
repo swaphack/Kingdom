@@ -3,9 +3,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
     <ProjectGuid>{75281B4E-5873-B179-BE90-FAA453BD275A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -34,255 +33,299 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>E:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>E:\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EditorScripts\EditorMake.cs" />
-     <Compile Include="Assets\EditorScripts\FormationMake.cs" />
-     <Compile Include="Assets\EditorScripts\TerrainMake.cs" />
-     <Compile Include="Assets\Effects\Galaxy\Scripts\Galaxy.cs" />
-     <Compile Include="Assets\Effects\Galaxy\Scripts\Light.cs" />
-     <Compile Include="Assets\Effects\Galaxy\Scripts\Star.cs" />
-     <Compile Include="Assets\Effects\Galaxy\Scripts\Trail.cs" />
-     <Compile Include="Assets\Effects\Weather\Scripts\Rain.cs" />
-     <Compile Include="Assets\Effects\Weather\Scripts\Snow.cs" />
-     <Compile Include="Assets\Effects\Weather\Scripts\Weather.cs" />
-     <Compile Include="Assets\Geography\Ground\Base\GroundBase.cs" />
-     <Compile Include="Assets\Geography\Ground\Base\Layer.cs" />
-     <Compile Include="Assets\Geography\Ground\Base\Tile.cs" />
-     <Compile Include="Assets\Geography\Ground\Base\Tool.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\Builder.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\Building.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\BuildingLayer.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\Ground.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\Role.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\RoleLayer.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\Turf.cs" />
-     <Compile Include="Assets\Geography\Ground\Sample\TurfLayer.cs" />
-     <Compile Include="Assets\Geography\Map\Base\Area.cs" />
-     <Compile Include="Assets\Geography\Map\Base\Background.cs" />
-     <Compile Include="Assets\Geography\Map\Base\MapData.cs" />
-     <Compile Include="Assets\Geography\Map\Base\WorldManager.cs" />
-     <Compile Include="Assets\Geography\Map\Base\WorldMap.cs" />
-     <Compile Include="Assets\Geography\Map\Document\DocFilter.cs" />
-     <Compile Include="Assets\Geography\Map\Document\MapFile.cs" />
-     <Compile Include="Assets\Geography\Map\Document\Node.cs" />
-     <Compile Include="Assets\Geography\Map\Document\NodeParser.cs" />
-     <Compile Include="Assets\Geography\Terrian\Base\Cube.cs" />
-     <Compile Include="Assets\Geography\Terrian\Base\Data.cs" />
-     <Compile Include="Assets\Geography\Terrian\Base\Terrain.cs" />
-     <Compile Include="Assets\Geography\Terrian\Sample\Builder.cs" />
-     <Compile Include="Assets\Geography\Terrian\Sample\MineCraftLayer.cs" />
-     <Compile Include="Assets\HighlightingSystem\Scripts\HighlightableObject.cs" />
-     <Compile Include="Assets\HighlightingSystem\Scripts\HighlightingEffect.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_DemoGUI.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_FPS.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_RealtimeReflection.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_AudioCurves.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_LightCurves.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_PhysicsForceCurves.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ScaleCurves.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ShaderColorGradient.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ShaderFloatCurve.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ShaderProperties.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_WindCurves.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingColor.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingPhysxForce.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingProjectile.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingVisible.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_CollisionPropertyDeactiavtion.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_ParticleCollisionHandler.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_ParticleLight.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_ParticleTrail.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_Turbulence.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_CameraShake.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_ColorHelper.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_CopyPosition.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DeactivateByTime.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DeactivateRigidbodyByTime.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DemoReactivation.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DistortionAndBloom.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_EffectEvent.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_MaterialQueue.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_OnEnableResetTransform.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_PhysXSetImpulse.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_RaycastCollision.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_ReplaceMaterialByTime.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_ReplaceModelOnCollision.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_RotateAround.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_StartDelay.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TextureShaderProperties.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TornadoParticles.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TrailRenderer.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TransformMotion.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_UVAnimation.cs" />
-     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_UVScroll.cs" />
-     <Compile Include="Assets\Script\Battle\BNode.cs" />
-     <Compile Include="Assets\Script\Battle\Field.cs" />
-     <Compile Include="Assets\Script\Battle\Formation.cs" />
-     <Compile Include="Assets\Script\Battle\Team.cs" />
-     <Compile Include="Assets\Script\Battle\Unit.cs" />
-     <Compile Include="Assets\Script\Common\AI\PerlinNoise.cs" />
-     <Compile Include="Assets\Script\Common\Component\ActorBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Component\CameraBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Component\ITouchModel.cs" />
-     <Compile Include="Assets\Script\Common\Component\ModelBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Component\ObstacleBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Component\PathFinderBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Device\DeviceRoot.cs" />
-     <Compile Include="Assets\Script\Common\Device\KeyboardListener.cs" />
-     <Compile Include="Assets\Script\Common\Device\ScrollListener.cs" />
-     <Compile Include="Assets\Script\Common\Device\TouchListener.cs" />
-     <Compile Include="Assets\Script\Common\Document\Attribute.cs" />
-     <Compile Include="Assets\Script\Common\Document\Element.cs" />
-     <Compile Include="Assets\Script\Common\Document\IDocument.cs" />
-     <Compile Include="Assets\Script\Common\Document\IElement.cs" />
-     <Compile Include="Assets\Script\Common\Document\IParser.cs" />
-     <Compile Include="Assets\Script\Common\Document\ISerializable.cs" />
-     <Compile Include="Assets\Script\Common\Document\IStructure.cs" />
-     <Compile Include="Assets\Script\Common\Groups\Group.cs" />
-     <Compile Include="Assets\Script\Common\Groups\GroupItem.cs" />
-     <Compile Include="Assets\Script\Common\Input\Component\IDeviceComponent.cs" />
-     <Compile Include="Assets\Script\Common\Input\Component\OnKeyboardDelegate.cs" />
-     <Compile Include="Assets\Script\Common\Input\Component\OnScrollDelegate.cs" />
-     <Compile Include="Assets\Script\Common\Input\Component\OnTouchDelegate.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Device.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Finger\FDoubleTouch.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Finger\FMultTouch.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Finger\FSingleTouch.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Finger\FingerInput.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\KeyBoard\KeyButton.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\KeyBoard\Keyboard.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Mouse\MLeftButton.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Mouse\MMiddleScroll.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Mouse\MRightButton.cs" />
-     <Compile Include="Assets\Script\Common\Input\Device\Mouse\Mouse.cs" />
-     <Compile Include="Assets\Script\Common\Input\Event\KeyboardEvent.cs" />
-     <Compile Include="Assets\Script\Common\Input\Event\ScrollEvent.cs" />
-     <Compile Include="Assets\Script\Common\Input\Event\TouchEvent.cs" />
-     <Compile Include="Assets\Script\Common\Manager\InputManager.cs" />
-     <Compile Include="Assets\Script\Common\Manager\ResourceManger.cs" />
-     <Compile Include="Assets\Script\Common\Manager\StepManager.cs" />
-     <Compile Include="Assets\Script\Common\Root.cs" />
-     <Compile Include="Assets\Script\Common\Step\IStep.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Base\UIBase.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Base\UIControl.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Base\UILayer.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Base\UIRect.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Base\UISelectable.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Box\UIAbsoluteBox.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Box\UIBox.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Box\UIRelativeBox.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIButton.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIDropDown.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIImage.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIInputField.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIPanel.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIRawImage.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIScrollList.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIScrollbar.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UISlider.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIText.cs" />
-     <Compile Include="Assets\Script\Common\UIControl\Control\UIToggle.cs" />
-     <Compile Include="Assets\Script\Common\Utility\ByteReader.cs" />
-     <Compile Include="Assets\Script\Common\Utility\ByteWriter.cs" />
-     <Compile Include="Assets\Script\Common\Utility\CSVReader.cs" />
-     <Compile Include="Assets\Script\Common\Utility\Constants.cs" />
-     <Compile Include="Assets\Script\Common\Utility\IInitialization.cs" />
-     <Compile Include="Assets\Script\Common\Utility\Mesh2D.cs" />
-     <Compile Include="Assets\Script\Common\Utility\Singleton.cs" />
-     <Compile Include="Assets\Script\Common\Utility\SingletonBehaviour.cs" />
-     <Compile Include="Assets\Script\Common\Utility\Size.cs" />
-     <Compile Include="Assets\Script\Common\Utility\Tool.cs" />
-     <Compile Include="Assets\Script\Motion\MovingObject.cs" />
-     <Compile Include="Assets\Script\UILayer\BattleLayer.cs" />
-     <Compile Include="Assets\Script\UILayer\MainLayer.cs" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_CutoutBorderMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalSky.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Tornado.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DepthMask.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DistortionParticlesMobile.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\trade_winds.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMaskMulMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_MobileDiffuse.shader" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingBlur.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalMask.shader" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilTransparent.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMaskMobile.shader" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingInclude.cginc" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalMask.shader" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingComposite.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Bloom\Resources\RFX4_Bloom_Inc.cginc" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DistortionParticlesAdd.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplash.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Readme.txt" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilOpaqueZ.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMaskMul.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\positions.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_IceMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_CutoutBorder.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_IceDecalMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Bloom\Resources\RFX4_Bloom.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\region.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_ProjectorBlended.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\terrain.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_IceDecal.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Lava.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\Test.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalStandard.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashMobile.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\ambient_object.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_ProjectorBlendedMobile.shader" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilOpaque.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_ShaderExtension.cginc" />
-     <None Include="Assets\Geography\Map\Resources\Data\continent.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterTurbulence.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Bloom\Resources\RFX4_BloomAdditive.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\seasons.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Particle.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMask.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\default.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashTexMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\NoStencilTransperentDiffuse.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalMaskMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_TranperentDiffuse.shader" />
-     <None Include="Assets\Geography\Map\Resources\Data\climate.txt" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Lightning.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DistortionParticles.shader" />
-     <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilTransparentZ.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashTex.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_LightningMobile.shader" />
-     <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Ice.shader" />
- <Reference Include="UnityEngine.UI">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.VR">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\EditorScripts\EditorMake.cs" />
+    <Compile Include="Assets\EditorScripts\FormationMake.cs" />
+    <Compile Include="Assets\EditorScripts\TerrainMake.cs" />
+    <Compile Include="Assets\Effects\Galaxy\Scripts\Galaxy.cs" />
+    <Compile Include="Assets\Effects\Galaxy\Scripts\Light.cs" />
+    <Compile Include="Assets\Effects\Galaxy\Scripts\Star.cs" />
+    <Compile Include="Assets\Effects\Galaxy\Scripts\Trail.cs" />
+    <Compile Include="Assets\Effects\Weather\Scripts\Rain.cs" />
+    <Compile Include="Assets\Effects\Weather\Scripts\Snow.cs" />
+    <Compile Include="Assets\Effects\Weather\Scripts\Weather.cs" />
+    <Compile Include="Assets\Football\Logic\Player.cs" />
+    <Compile Include="Assets\Geography\Ground\Base\GroundBase.cs" />
+    <Compile Include="Assets\Geography\Ground\Base\Layer.cs" />
+    <Compile Include="Assets\Geography\Ground\Base\Tile.cs" />
+    <Compile Include="Assets\Geography\Ground\Base\Tool.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\Builder.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\Building.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\BuildingLayer.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\Ground.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\Role.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\RoleLayer.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\Turf.cs" />
+    <Compile Include="Assets\Geography\Ground\Sample\TurfLayer.cs" />
+    <Compile Include="Assets\Geography\Map\Base\Area.cs" />
+    <Compile Include="Assets\Geography\Map\Base\Background.cs" />
+    <Compile Include="Assets\Geography\Map\Base\WorldManager.cs" />
+    <Compile Include="Assets\Geography\Map\Base\WorldMap.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JSON\JSONData.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JSON\JSONFile.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JSON\JSONFilter.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JSON\JSONNode.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JSON\JSONParser.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JavaScript\JSData.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JavaScript\JSFile.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JavaScript\JSFilter.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JavaScript\JSNode.cs" />
+    <Compile Include="Assets\Geography\Map\Document\JavaScript\JSParser.cs" />
+    <Compile Include="Assets\Geography\Map\Document\SimpleJS.cs" />
+    <Compile Include="Assets\Geography\Terrian\Base\Cube.cs" />
+    <Compile Include="Assets\Geography\Terrian\Base\Data.cs" />
+    <Compile Include="Assets\Geography\Terrian\Base\Terrain.cs" />
+    <Compile Include="Assets\Geography\Terrian\Sample\Builder.cs" />
+    <Compile Include="Assets\Geography\Terrian\Sample\MineCraftLayer.cs" />
+    <Compile Include="Assets\HighlightingSystem\Scripts\HighlightableObject.cs" />
+    <Compile Include="Assets\HighlightingSystem\Scripts\HighlightingEffect.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_DemoGUI.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_FPS.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scene\RFX4_RealtimeReflection.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_AudioCurves.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_LightCurves.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_PhysicsForceCurves.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ScaleCurves.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ShaderColorGradient.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ShaderFloatCurve.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_ShaderProperties.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\Curves\RFX4_WindCurves.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingColor.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingPhysxForce.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingProjectile.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\EffectSettings\RFX4_EffectSettingVisible.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_CollisionPropertyDeactiavtion.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_ParticleCollisionHandler.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_ParticleLight.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_ParticleTrail.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\ParticleSysem\RFX4_Turbulence.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_CameraShake.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_ColorHelper.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_CopyPosition.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DeactivateByTime.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DeactivateRigidbodyByTime.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DemoReactivation.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_DistortionAndBloom.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_EffectEvent.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_MaterialQueue.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_OnEnableResetTransform.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_PhysXSetImpulse.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_RaycastCollision.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_ReplaceMaterialByTime.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_ReplaceModelOnCollision.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_RotateAround.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_StartDelay.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TextureShaderProperties.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TornadoParticles.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TrailRenderer.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_TransformMotion.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_UVAnimation.cs" />
+    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v4\Scripts\RFX4_UVScroll.cs" />
+    <Compile Include="Assets\Script\Battle\BNode.cs" />
+    <Compile Include="Assets\Script\Battle\Field.cs" />
+    <Compile Include="Assets\Script\Battle\Formation.cs" />
+    <Compile Include="Assets\Script\Battle\Team.cs" />
+    <Compile Include="Assets\Script\Battle\Unit.cs" />
+    <Compile Include="Assets\Script\Common\AI\PerlinNoise.cs" />
+    <Compile Include="Assets\Script\Common\Component\ActorBehaviour.cs" />
+    <Compile Include="Assets\Script\Common\Component\CameraBehaviour.cs" />
+    <Compile Include="Assets\Script\Common\Component\ITouchModel.cs" />
+    <Compile Include="Assets\Script\Common\Component\ModelBehaviour.cs" />
+    <Compile Include="Assets\Script\Common\Component\ObstacleBehaviour.cs" />
+    <Compile Include="Assets\Script\Common\Component\PathFinderBehaviour.cs" />
+    <Compile Include="Assets\Script\Common\Device\DeviceRoot.cs" />
+    <Compile Include="Assets\Script\Common\Device\KeyboardListener.cs" />
+    <Compile Include="Assets\Script\Common\Device\ScrollListener.cs" />
+    <Compile Include="Assets\Script\Common\Device\TouchListener.cs" />
+    <Compile Include="Assets\Script\Common\Document\Attribute.cs" />
+    <Compile Include="Assets\Script\Common\Document\DocFilter.cs" />
+    <Compile Include="Assets\Script\Common\Document\Element.cs" />
+    <Compile Include="Assets\Script\Common\Document\IDocument.cs" />
+    <Compile Include="Assets\Script\Common\Document\IElement.cs" />
+    <Compile Include="Assets\Script\Common\Document\IParser.cs" />
+    <Compile Include="Assets\Script\Common\Document\ISerializable.cs" />
+    <Compile Include="Assets\Script\Common\Document\IStructure.cs" />
+    <Compile Include="Assets\Script\Common\Groups\Group.cs" />
+    <Compile Include="Assets\Script\Common\Groups\GroupItem.cs" />
+    <Compile Include="Assets\Script\Common\Input\Component\IDeviceComponent.cs" />
+    <Compile Include="Assets\Script\Common\Input\Component\OnKeyboardDelegate.cs" />
+    <Compile Include="Assets\Script\Common\Input\Component\OnScrollDelegate.cs" />
+    <Compile Include="Assets\Script\Common\Input\Component\OnTouchDelegate.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Device.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Finger\FDoubleTouch.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Finger\FMultTouch.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Finger\FSingleTouch.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Finger\FingerInput.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\KeyBoard\KeyButton.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\KeyBoard\Keyboard.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Mouse\MLeftButton.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Mouse\MMiddleScroll.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Mouse\MRightButton.cs" />
+    <Compile Include="Assets\Script\Common\Input\Device\Mouse\Mouse.cs" />
+    <Compile Include="Assets\Script\Common\Input\Event\KeyboardEvent.cs" />
+    <Compile Include="Assets\Script\Common\Input\Event\ScrollEvent.cs" />
+    <Compile Include="Assets\Script\Common\Input\Event\TouchEvent.cs" />
+    <Compile Include="Assets\Script\Common\Manager\InputManager.cs" />
+    <Compile Include="Assets\Script\Common\Manager\ResourceManger.cs" />
+    <Compile Include="Assets\Script\Common\Manager\StepManager.cs" />
+    <Compile Include="Assets\Script\Common\Root.cs" />
+    <Compile Include="Assets\Script\Common\Step\IStep.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Base\UIBase.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Base\UIControl.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Base\UILayer.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Base\UIRect.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Base\UISelectable.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Box\UIAbsoluteBox.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Box\UIBox.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Box\UIRelativeBox.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIButton.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIDropDown.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIImage.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIInputField.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIPanel.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIRawImage.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIScrollList.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIScrollbar.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UISlider.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIText.cs" />
+    <Compile Include="Assets\Script\Common\UIControl\Control\UIToggle.cs" />
+    <Compile Include="Assets\Script\Common\Utility\ByteReader.cs" />
+    <Compile Include="Assets\Script\Common\Utility\ByteWriter.cs" />
+    <Compile Include="Assets\Script\Common\Utility\CSVReader.cs" />
+    <Compile Include="Assets\Script\Common\Utility\Constants.cs" />
+    <Compile Include="Assets\Script\Common\Utility\IInitialization.cs" />
+    <Compile Include="Assets\Script\Common\Utility\Mesh2D.cs" />
+    <Compile Include="Assets\Script\Common\Utility\Singleton.cs" />
+    <Compile Include="Assets\Script\Common\Utility\SingletonBehaviour.cs" />
+    <Compile Include="Assets\Script\Common\Utility\Size.cs" />
+    <Compile Include="Assets\Script\Common\Utility\Tool.cs" />
+    <Compile Include="Assets\Script\Motion\MovingObject.cs" />
+    <Compile Include="Assets\Script\UILayer\BattleLayer.cs" />
+    <Compile Include="Assets\Script\UILayer\MainLayer.cs" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\beijing.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\hubei.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_CutoutBorderMobile.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\xinjiang.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalSky.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\shandong.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\jiangsu.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\shanghai.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\hainan.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Tornado.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\liaoning.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DepthMask.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DistortionParticlesMobile.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\trade_winds.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMaskMulMobile.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\qinghai.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\ningxia.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_MobileDiffuse.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\hunan.txt" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingBlur.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalMask.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\shanxi.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\hebei.txt" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilTransparent.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMaskMobile.shader" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingInclude.cginc" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\henan.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\ghost.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalMask.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\zhejiang.txt" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingComposite.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\guangdong.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Bloom\Resources\RFX4_Bloom_Inc.cginc" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DistortionParticlesAdd.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplash.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Readme.txt" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilOpaqueZ.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\chongqing.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\jilin.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMaskMul.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\positions.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\guangxi.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_IceMobile.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_CutoutBorder.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_IceDecalMobile.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Bloom\Resources\RFX4_Bloom.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\region.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\sichuan.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_ProjectorBlended.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\terrain.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_IceDecal.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Lava.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\Test.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_PortalStandard.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashMobile.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\ambient_object.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_ProjectorBlendedMobile.shader" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilOpaque.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_ShaderExtension.cginc" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\xianggang.txt" />
+    <None Include="Assets\Geography\Map\Resources\Data\continent.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterTurbulence.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Bloom\Resources\RFX4_BloomAdditive.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\seasons.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\tianjin.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Particle.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\shan-xi.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalDistortMask.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\yunnan.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\neimenggu.txt" />
+    <None Include="Assets\Geography\Map\Resources\Data\default.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashTexMobile.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\NoStencilTransperentDiffuse.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Decal\RFX4_DecalMaskMobile.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\taiwang.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Portal\RFX4_TranperentDiffuse.shader" />
+    <None Include="Assets\Geography\Map\Resources\Data\climate.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\gansu.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Lightning.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\jiangxi.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_DistortionParticles.shader" />
+    <None Include="Assets\HighlightingSystem\Resources\HighlightingStencilTransparentZ.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\heilongjiang.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\xizang.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\fujian.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\Water\RFX4_WaterSplashTex.shader" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\anhui.txt" />
+    <None Include="Assets\Geography\Map\Resources\Provinces\guizhou.txt" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_LightningMobile.shader" />
+    <None Include="Assets\KriptoFX\Realistic Effects Pack v4\Shaders\RFX4_Ice.shader" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\Networking\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\TestRunner\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\TestRunner\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityAnalytics\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityHoloLens\RuntimeEditor\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>E:\Program Files\Unity\Editor\Data\UnityExtensions\Unity\UnityVR\RuntimeEditor\UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Compile Include="Assets\Script\Common\CG\CGPolygon.cs" />
+    <Compile Include="Assets\Script\Common\CG\CGConvex.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -292,5 +335,8 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
+  <ItemGroup>
+    <Folder Include="Assets\Script\Common\CG\" />
+    <Folder Include="Assets\Script\Common\AI\" />
+  </ItemGroup>
 </Project>

@@ -1,8 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\Inspector\CameraEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Geography\Map\Resources\Provinces\ghost.txt">
     <Files>
-      <File FileName="Assets\Editor\Inspector\CameraEditor.cs" Line="46" Column="1" />
+      <File FileName="Assets\Geography\Map\Resources\Provinces\ghost.txt" Line="6" Column="5" />
+      <File FileName="Assets\Geography\Map\Document\JavaScript\JSNode.cs" Line="33" Column="16" NotebookId="1" />
+      <File FileName="Assets\Geography\Map\Document\SimpleJS.cs" Line="49" Column="41" NotebookId="1" />
+      <File FileName="Assets\Editor\Window\ChangeFileFormat.cs" Line="29" Column="3" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -10,7 +13,6 @@
       <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Geography\Map\Document\NodeParser.cs" line="63" column="1" />
       <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Geography\Map\Document\NodeParser.cs" line="100" column="1" />
       <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Geography\Map\Document\NodeParser.cs" line="169" column="1" />
-      <Breakpoint file="E:\GIT\Kindom\Kindom\Assets\Geography\Map\Base\Area.cs" line="33" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

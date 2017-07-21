@@ -1,24 +1,27 @@
 ﻿using System;
 
-/// <summary>
-/// 单例
-/// </summary>
-public class Singleton<T> where T : new()
+namespace Common.Utility
 {
-	private static T s_Instance;
+	/// <summary>
+	/// 单例
+	/// </summary>
+	public class Singleton<T> where T : new()
+	{
+		private static T s_Instance;
 
-	public static T Instance {
-		get { 
-			if (s_Instance == null) {
-				s_Instance = new T ();
+		public static T Instance {
+			get { 
+				if (s_Instance == null) {
+					s_Instance = new T ();
+				}
+				return s_Instance;
 			}
-			return s_Instance;
+		}
+
+		protected Singleton ()
+		{
+		
 		}
 	}
 
-	protected Singleton()
-	{
-		
-	}
 }
-
