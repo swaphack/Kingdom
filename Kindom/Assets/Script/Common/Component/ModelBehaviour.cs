@@ -7,7 +7,7 @@ using Common.Utility;
 /// 模型组件
 /// </summary>
 [RequireComponent(typeof(HighlightableObject))]
-public class ModelBehaviour : MonoBehaviour, ITouchModel,IInitialization
+public class ModelBehaviour : MonoBehaviour, ITouchModel, IInitialization
 {
 	/// <summary>
 	/// 外发光颜色

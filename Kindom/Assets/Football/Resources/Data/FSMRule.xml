@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<rules>
+		<item state="0">
+			<item condition="EPST_BALL_OUTOFCONTROL">
+				<item condition="EPST_BALL_INRANGEOF_SELF">
+				
+				</item>
+			</item>
+		</item>
+	</rules>
+</root>
+
