@@ -40,7 +40,7 @@ namespace Geography.Map
 			return vectorAry;
 		}
 
-		private Color ConvertToColor (CSVReader.CSVData data)
+		private Color ConvertToColor (CSVData data)
 		{
 			Color color = new Color (
 				              float.Parse (data [1]),

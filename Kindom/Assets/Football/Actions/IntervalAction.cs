@@ -84,7 +84,7 @@ namespace Football.Actions
 	}
 
 	/// <summary>
-	/// 旋转到
+	/// 旋转
 	/// </summary>
 	public class RotateBy : IntervalAction
 	{

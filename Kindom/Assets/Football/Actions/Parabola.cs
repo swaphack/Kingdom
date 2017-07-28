@@ -5,7 +5,7 @@ namespace Football.Actions
 	/// <summary>
 	/// 抛物线运动
 	/// </summary>
-	public class ParabolaAction : Action
+	public class Parabola : Action
 	{
 		/// <summary>
 		/// 时间
@@ -16,14 +16,24 @@ namespace Football.Actions
 		/// </summary>
 		private Vector3 _Speed;
 		/// <summary>
+		/// 初始速度
+		/// </summary>
+		private Vector3 _InitSpeed;
+		/// <summary>
 		/// 最低高度
 		/// </summary>
 		private float _MinHeight;
 		
-		public ParabolaAction (Vector3 speed, float minHeight)
+		public Parabola (Vector3 speed, float minHeight)
 		{
-			_Speed = speed;
+			_InitSpeed = speed;
 			_MinHeight = minHeight;
+		}
+
+		public override void Init ()
+		{
+			base.Init ();
+			_Speed = _InitSpeed;
 		}
 
 		/// <summary>

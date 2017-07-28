@@ -37,6 +37,8 @@ namespace Football.Actions
 		/// 初始化
 		/// </summary>
 		public override void Init() {
+			base.Init ();
+
 			_Time = 0;
 		}
 	}

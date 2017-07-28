@@ -27,8 +27,14 @@ namespace Football
 		void Start() {
 			AddAgent<Agent> ();
 
-			this.AddAction(new ParabolaAction(new Vector3(5,10,0), 0));
-			this.AddAction(new ParabolaAction(new Vector3(-5,10,0), 0));
+			this.AddAction(
+				new RepeateForever(
+					new Sequence(
+						new Parabola(new Vector3(20,10,0), 0),
+						new Parabola(new Vector3(-20,10,0), 0)
+					)
+				)
+			);
 		}
 	}
 }

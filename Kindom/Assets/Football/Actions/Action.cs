@@ -47,13 +47,14 @@ namespace Football.Actions
 		/// 初始化
 		/// </summary>
 		public virtual void Init() {
+			_Finish = false;
 		}
 
 		/// <summary>
 		/// 更新
 		/// </summary>
 		/// <param name="dt">Dt.</param>
-		public virtual void Update(float dt) {
+		public void Update(float dt) {
 			if (Finish) {
 				return;
 			}
