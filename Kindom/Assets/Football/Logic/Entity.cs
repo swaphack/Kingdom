@@ -17,6 +17,10 @@ namespace Football
 		/// 动作表演者
 		/// </summary>
 		private Performer _Performer;
+		/// <summary>
+		/// 智能体
+		/// </summary>
+		private Agent _Agent;
 
 		/// <summary>
 		/// 编号
@@ -47,10 +51,14 @@ namespace Football
 		/// <value>The agent.</value>
 		public Agent Agent {
 			get { 
-				return this.GetComponent<Agent>();
+				return _Agent;
 			} 
 		}
 
+		/// <summary>
+		/// 父节点
+		/// </summary>
+		/// <value>The parent.</value>
 		public Component Parent {
 			get { 
 				return transform.parent;
@@ -82,6 +90,7 @@ namespace Football
 		{
 			T t = this.gameObject.AddComponent<T> ();
 			t.SetEntity (this);
+			_Agent = t;
 		}
 
 		/// <summary>

@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Common.AI
+namespace Common.CG
 {
-	
-
-
 	/// <summary>
 	/// 柏林噪声
 	/// </summary>

@@ -20,6 +20,10 @@ namespace Football.AI
 		/// </summary>
 		private Dictionary<int, RuleNode> _Children;
 
+		/// <summary>
+		/// 条件
+		/// </summary>
+		/// <value>The condition.</value>
 		public int Condition {
 			get { 
 				return _Condition;
@@ -28,7 +32,10 @@ namespace Football.AI
 				_Result = value;
 			}
 		}
-
+		/// <summary>
+		/// 结果
+		/// </summary>
+		/// <value>The result.</value>
 		public int Result {
 			get { 
 				return _Result;
@@ -139,7 +146,7 @@ namespace Football.AI
 		/// 移除规则
 		/// 
 		/// 先找到规则链，存放在栈
-		/// 再从最后一个开始移除，一直到第一个个
+		/// 再从最后一个开始移除，一直到第一个
 		/// </summary>
 		/// <param name="conditions">Conditions.</param>
 		public void RemoveRule(int[] conditions) {
